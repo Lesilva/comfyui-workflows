@@ -1,0 +1,324 @@
+{
+  "31": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "232",
+        0
+      ],
+      "seed": 575326779014411,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "135",
+        0
+      ],
+      "latent_image": [
+        "124",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "124": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "228",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    }
+  },
+  "177": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ],
+      "latent": [
+        "124",
+        0
+      ]
+    }
+  },
+  "135": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    }
+  },
+  "197": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "35": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "177",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    }
+  },
+  "228": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "37": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "136": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_46"
+    }
+  },
+  "232": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "37",
+        0
+      ],
+      "clip": [
+        "38",
+        0
+      ],
+      "lora_name": "kontext产品溶图打光_海报合成_产品打光_电商换背景_图片合成_溶图光影重绘_V1.0",
+      "strength_model": 1,
+      "strength_clip": 1
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Product and background naturally integrated with relighting applied. Lighting direction and color temperature are consistent, shadows are soft and realistic, avoiding cutout effect. Product texture and depth are preserved, achieving a harmonious and photorealistic result.",
+      "clip": [
+        "232",
+        1
+      ]
+    }
+  },
+  "38": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "39": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "195": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "238": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "248",
+        0
+      ],
+      "seed": 893113618143655,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "241",
+        0
+      ],
+      "latent_image": [
+        "239",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "239": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "245",
+        0
+      ],
+      "vae": [
+        "251",
+        0
+      ]
+    }
+  },
+  "240": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "249",
+        0
+      ],
+      "latent": [
+        "239",
+        0
+      ]
+    }
+  },
+  "241": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "249",
+        0
+      ]
+    }
+  },
+  "242": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "243": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "240",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "244": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "238",
+        0
+      ],
+      "vae": [
+        "251",
+        0
+      ]
+    }
+  },
+  "245": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "246": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "247": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "244",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_46"
+    }
+  },
+  "250": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "251": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "249": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "character seamlessly integrated into the background, consistent lighting, shadows match the environment, harmonious color grading",
+      "clip": [
+        "248",
+        1
+      ]
+    }
+  },
+  "248": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "246",
+        0
+      ],
+      "clip": [
+        "250",
+        0
+      ],
+      "lora_name": "人物溶图打光 | 人物海报合成_人像打光_人物背景融合_V1.0",
+      "strength_model": 1.2,
+      "strength_clip": 1
+    }
+  },
+  "254": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "253": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "252": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  }
+}

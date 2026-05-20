@@ -1,0 +1,142 @@
+{
+  "7": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "4",
+        1
+      ]
+    }
+  },
+  "4": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "dreamshaper_8_v8"
+    }
+  },
+  "11": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    }
+  },
+  "10": {
+    "class_type": "ICLightConditioning",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "LoadAndApplyICLightUnet",
+    "inputs": {}
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    }
+  },
+  "14": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "15",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    }
+  },
+  "28": {
+    "class_type": "GetImageSize+",
+    "inputs": {}
+  },
+  "3": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "16",
+        0
+      ],
+      "seed": 327825352486149,
+      "steps": "fixed",
+      "cfg": 25,
+      "sampler_name": 6,
+      "scheduler": "dpmpp_2m",
+      "positive": [
+        "10",
+        0
+      ],
+      "negative": [
+        "10",
+        1
+      ],
+      "latent_image": [
+        "29",
+        0
+      ],
+      "denoise": "karras"
+    }
+  },
+  "29": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "28",
+        0
+      ],
+      "height": [
+        "28",
+        1
+      ],
+      "batch_size": 512
+    }
+  },
+  "13": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "15": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Masterpiece, Ultra HD, 8K, a girl",
+      "clip": [
+        "4",
+        1
+      ]
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_48"
+    }
+  }
+}

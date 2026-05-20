@@ -1,0 +1,188 @@
+{
+  "12": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Qwen-Edit_1.0",
+      "weight_dtype": "default"
+    }
+  },
+  "22": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "27",
+        0
+      ],
+      "vae": [
+        "23",
+        0
+      ]
+    }
+  },
+  "27": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "26",
+        0
+      ]
+    }
+  },
+  "26": {
+    "class_type": "ImageConcatMulti",
+    "inputs": {}
+  },
+  "28": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "23": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    }
+  },
+  "11": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": {
+      "model": [
+        "12",
+        0
+      ],
+      "shift": 3.1
+    }
+  },
+  "30": {
+    "class_type": "easy clearCacheAll",
+    "inputs": {}
+  },
+  "31": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "10": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "seed": 1095649963261267,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 2.5,
+      "scheduler": "euler",
+      "positive": [
+        "17",
+        0
+      ],
+      "negative": [
+        "18",
+        0
+      ],
+      "latent_image": [
+        "21",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "17": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "28",
+        0
+      ],
+      "prompt": "保持右边沙发的场景不变，让左边的女人自然的坐在沙发上。输出的场景是女人坐在右边的沙发上",
+      "vae": [
+        "23",
+        0
+      ],
+      "image": [
+        "27",
+        0
+      ]
+    }
+  },
+  "18": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "28",
+        0
+      ],
+      "prompt": "色调艳丽，过曝，静态，细节模糊不清，风格，作品，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，杂乱的背景，三条腿，",
+      "vae": [
+        "23",
+        0
+      ],
+      "image": [
+        "27",
+        0
+      ]
+    }
+  },
+  "29": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "10",
+        0
+      ],
+      "vae": [
+        "23",
+        0
+      ]
+    }
+  },
+  "21": {
+    "class_type": "LatentUpscale",
+    "inputs": {
+      "samples": [
+        "22",
+        0
+      ],
+      "upscale_method": "nearest-exact",
+      "width": [
+        "33",
+        0
+      ],
+      "height": [
+        "33",
+        1
+      ],
+      "crop": 768
+    }
+  },
+  "24": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "33": {
+    "class_type": "Get Image Size",
+    "inputs": {}
+  },
+  "32": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "29",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_52"
+    }
+  },
+  "25": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  }
+}

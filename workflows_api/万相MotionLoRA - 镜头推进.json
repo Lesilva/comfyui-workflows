@@ -1,0 +1,199 @@
+{
+  "351": {
+    "class_type": "WanVideoBlockSwap",
+    "inputs": {
+      "blocks_to_swap": 20,
+      "offload_img_emb": false,
+      "offload_txt_emb": false,
+      "use_non_blocking": true,
+      "vace_blocks_to_swap": 0
+    }
+  },
+  "352": {
+    "class_type": "WanVideoLoraSelect",
+    "inputs": {
+      "lora": "Motion-Lora-Camera-Push-In_Wan-14B-720p",
+      "strength": 1,
+      "prev_lora": false
+    }
+  },
+  "353": {
+    "class_type": "LoadWanVideoClipTextEncoder",
+    "inputs": {
+      "model_name": "open-clip-xlm-roberta-large-vit-huge-14_visual_fp16.safetensors",
+      "precision": "fp16",
+      "load_device": "offload_device"
+    }
+  },
+  "354": {
+    "class_type": "WanVideoVAELoader",
+    "inputs": {
+      "model_name": "Wan2_1_VAE_bf16.safetensors",
+      "precision": "bf16"
+    }
+  },
+  "355": {
+    "class_type": "LoadWanVideoT5TextEncoder",
+    "inputs": {
+      "model_name": "umt5-xxl-enc-bf16.safetensors",
+      "precision": "bf16",
+      "load_device": "offload_device",
+      "quantization": "disabled"
+    }
+  },
+  "357": {
+    "class_type": "WanVideoTextEncode",
+    "inputs": {
+      "positive_prompt": [
+        "325",
+        0
+      ],
+      "negative_prompt": "Gorgeous pink flowers, lush green leaves, and intertwining vines grow and cling to the magnificent buildings in a continuous frame.",
+      "t5": [
+        "355",
+        0
+      ],
+      "force_offload": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "model_to_offload": true
+    }
+  },
+  "358": {
+    "class_type": "WanVideoImageClipEncode",
+    "inputs": {
+      "clip_vision": [
+        "353",
+        0
+      ],
+      "image": [
+        "350",
+        0
+      ],
+      "vae": [
+        "354",
+        0
+      ],
+      "generation_width": [
+        "362",
+        3
+      ],
+      "generation_height": [
+        "362",
+        4
+      ],
+      "num_frames": [
+        "360",
+        0
+      ],
+      "force_offload": 480,
+      "noise_aug_strength": 768,
+      "latent_strength": 81,
+      "clip_embed_strength": true,
+      "adjust_resolution": 0
+    }
+  },
+  "349": {
+    "class_type": "LibLibOptions",
+    "inputs": {}
+  },
+  "348": {
+    "class_type": "LibLibVision",
+    "inputs": {}
+  },
+  "320": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "362": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "325": {
+    "class_type": "ttN concat",
+    "inputs": {}
+  },
+  "360": {
+    "class_type": "Int",
+    "inputs": {}
+  },
+  "350": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "365": {
+    "class_type": "WanVideoDecode",
+    "inputs": {
+      "vae": [
+        "354",
+        0
+      ],
+      "samples": [
+        "368",
+        0
+      ],
+      "enable_vae_tiling": true,
+      "tile_x": 272,
+      "tile_y": 272,
+      "tile_stride_x": 144,
+      "tile_stride_y": 128,
+      "normalization": "default"
+    }
+  },
+  "356": {
+    "class_type": "WanVideoModelLoader",
+    "inputs": {
+      "model": "Wan14Bi2vFusioniX_fp16.safetensors",
+      "base_precision": "bf16",
+      "quantization": "fp8_e4m3fn",
+      "load_device": "offload_device",
+      "attention_mode": "sdpa"
+    }
+  },
+  "368": {
+    "class_type": "WanVideoSampler",
+    "inputs": {
+      "model": [
+        "356",
+        0
+      ],
+      "image_embeds": [
+        "358",
+        0
+      ],
+      "steps": 10,
+      "cfg": 1,
+      "shift": 5,
+      "seed": 511008936686863,
+      "force_offload": "randomize",
+      "scheduler": true,
+      "riflex_freq_index": "unipc",
+      "text_embeds": [
+        "357",
+        0
+      ],
+      "samples": 0,
+      "denoise_strength": 1,
+      "feta_args": false,
+      "context_options": "comfy"
+    }
+  },
+  "366": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "365",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_44",
+      "format": "format",
+      "pingpong": "pix_fmt",
+      "save_output": "crf",
+      "audio": "save_metadata",
+      "meta_batch": "trim_to_audio",
+      "vae": "pingpong"
+    }
+  }
+}

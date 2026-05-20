@@ -1,0 +1,193 @@
+{
+  "24": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "23": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "30": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "14",
+        0
+      ],
+      "clip": [
+        "23",
+        0
+      ]
+    }
+  },
+  "18": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "22": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "28",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "27": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "29",
+        0
+      ],
+      "seed": 1086150061914994,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "22",
+        0
+      ],
+      "negative": [
+        "20",
+        0
+      ],
+      "latent_image": [
+        "25",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "19": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "23",
+        0
+      ]
+    }
+  },
+  "20": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "19",
+        0
+      ]
+    }
+  },
+  "25": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "26",
+        0
+      ],
+      "vae": [
+        "18",
+        0
+      ]
+    }
+  },
+  "26": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "17",
+        0
+      ]
+    }
+  },
+  "21": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_31"
+    }
+  },
+  "15": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "18",
+        0
+      ]
+    }
+  },
+  "28": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "30",
+        0
+      ],
+      "latent": [
+        "25",
+        0
+      ]
+    }
+  },
+  "14": {
+    "class_type": "ttN concat",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "29": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "24",
+        0
+      ],
+      "lora_name": "miluo丨版画生成器丨_V1.0",
+      "strength_model": [
+        "39",
+        0
+      ]
+    }
+  },
+  "32": {
+    "class_type": "ttN text",
+    "inputs": {}
+  },
+  "39": {
+    "class_type": "PrimitiveFloat",
+    "inputs": {
+      "value": 1
+    }
+  },
+  "13": {
+    "class_type": "ttN text",
+    "inputs": {}
+  },
+  "31": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  }
+}

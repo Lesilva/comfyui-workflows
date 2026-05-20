@@ -1,0 +1,39 @@
+{
+  "18": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_42"
+    }
+  },
+  "16": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "17": {
+    "class_type": "GeminiImageNode",
+    "inputs": {
+      "prompt": "Generate a photo of an 18 - year - old East Asian coser. She is full of youthful vitality, cute, charming and has a good figure. The photo should present a realistic cosplay shooting texture. She cosplays the main character in the original picture, retaining the same clothing and pose. The skin and clothing should have a real - life texture. Place an easel at the back - side of the coser to display the original picture. The location is set at Comiket in Tokyo. She maintains the same pose, looking like a real person stepping out of an illustration, with a perfect and delicate face, straight hair, big eyes, and a lively expression. The coser should be the main body of the picture, taking up a large proportion in the frame.",
+      "model": "gemini-2.5-flash-image-preview",
+      "seed": 2921620988360,
+      "images": [
+        "18",
+        0
+      ],
+      "files": "randomize"
+    }
+  },
+  "20": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  }
+}

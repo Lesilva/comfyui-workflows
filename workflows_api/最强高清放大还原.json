@@ -1,0 +1,166 @@
+{
+  "99": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4xNomos8kSCHAT-L"
+    }
+  },
+  "117": {
+    "class_type": "LayerColor: ColorAdapter",
+    "inputs": {}
+  },
+  "97": {
+    "class_type": "TeaCache",
+    "inputs": {}
+  },
+  "95": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "94",
+        0
+      ],
+      "lora_name": "FLUX.1八步出图Lora提速版_FLUX.1八步出图Lora",
+      "strength_model": 1
+    }
+  },
+  "98": {
+    "class_type": "UltimateSDUpscale",
+    "inputs": {}
+  },
+  "94": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "iNiverse Mix Flux(SFW&NSFW)_Real V2.15",
+      "weight_dtype": "default"
+    }
+  },
+  "96": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "100": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "115": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "110": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "108": {
+    "class_type": "ImpactCompare",
+    "inputs": {
+      "cmp": "a < b",
+      "a": [
+        "107",
+        0
+      ],
+      "b": [
+        "107",
+        1
+      ]
+    }
+  },
+  "107": {
+    "class_type": "Get Image Size",
+    "inputs": {}
+  },
+  "113": {
+    "class_type": "easy showAnything",
+    "inputs": {}
+  },
+  "116": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "103",
+        0
+      ]
+    }
+  },
+  "105": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "102",
+        0
+      ],
+      "upscale_method": "nearest-exact",
+      "megapixels": 4
+    }
+  },
+  "103": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "114": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "121": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "104": {
+    "class_type": "SeedVR2",
+    "inputs": {}
+  },
+  "126": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "127": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "102": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_03.png"
+    }
+  },
+  "118": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "117",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_54"
+    }
+  },
+  "120": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "104",
+        0
+      ]
+    }
+  },
+  "101": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "4k",
+      "clip": [
+        "96",
+        0
+      ]
+    }
+  }
+}

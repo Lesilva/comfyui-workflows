@@ -1,0 +1,187 @@
+{
+  "22": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "30",
+        0
+      ],
+      "conditioning": [
+        "26",
+        0
+      ]
+    }
+  },
+  "35": {
+    "class_type": "PrimitiveNode",
+    "inputs": {}
+  },
+  "25": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 1234
+    }
+  },
+  "30": {
+    "class_type": "ModelSamplingFlux",
+    "inputs": {
+      "model": [
+        "12",
+        0
+      ],
+      "max_shift": 1.15,
+      "base_shift": 0.5,
+      "width": [
+        "34",
+        0
+      ],
+      "height": [
+        "35",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "30",
+        0
+      ],
+      "scheduler": "normal",
+      "steps": 50,
+      "denoise": 1
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "portrait of a girl",
+      "clip": [
+        "11",
+        0
+      ]
+    }
+  },
+  "27": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {
+      "width": [
+        "34",
+        0
+      ],
+      "height": [
+        "35",
+        0
+      ],
+      "batch_size": 1280
+    }
+  },
+  "34": {
+    "class_type": "PrimitiveNode",
+    "inputs": {}
+  },
+  "13": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "25",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "16",
+        0
+      ],
+      "sigmas": [
+        "17",
+        0
+      ],
+      "latent_image": [
+        "27",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Flux.1-Dev-SRPO｜3倍于Flux美感_bf16",
+      "weight_dtype": "default"
+    }
+  },
+  "16": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "26": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "10": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "11": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp16",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    }
+  },
+  "42": {
+    "class_type": "SeedVR2",
+    "inputs": {}
+  },
+  "43": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "42",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_12"
+    }
+  },
+  "45": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    }
+  },
+  "41": {
+    "class_type": "easy int",
+    "inputs": {}
+  }
+}

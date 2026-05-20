@@ -1,0 +1,180 @@
+{
+  "8": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "10": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "1": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "This photo has been meticulously retouched to remove the wrinkles on the clothing in the picture, retain the texture of the fabric, and the background has been carefully retouched to make it cleaner.",
+      "clip": [
+        "8",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "12",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "1",
+        0
+      ],
+      "latent": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "4": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "1",
+        0
+      ]
+    }
+  },
+  "20": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "21",
+        0
+      ],
+      "seed": 377728482677920,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "3",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "7": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "18": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_45"
+    }
+  },
+  "11": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "12": {
+    "class_type": "easy imageScaleDownToSize",
+    "inputs": {}
+  },
+  "21": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "lora_name": "PS高阶-布料去褶皱_Kontext-产品去褶皱",
+      "strength_model": 1.5
+    }
+  },
+  "28": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "25",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_45"
+    }
+  },
+  "19": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "9": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "20",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "ImageConcatMulti",
+    "inputs": {}
+  },
+  "30": {
+    "class_type": "DetailTransfer",
+    "inputs": {}
+  },
+  "31": {
+    "class_type": "ImageCASharpening+",
+    "inputs": {}
+  },
+  "25": {
+    "class_type": "InspyrenetRembg",
+    "inputs": {}
+  }
+}

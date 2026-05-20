@@ -1,0 +1,624 @@
+{
+  "404": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 345031711483041
+    }
+  },
+  "405": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "407": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "408",
+        0
+      ],
+      "clip": [
+        "408",
+        1
+      ],
+      "lora_name": "flux.1_家居_原木风家居设计.v1.0.safetensors",
+      "strength_model": 0.2,
+      "strength_clip": 0.2
+    }
+  },
+  "408": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "409",
+        0
+      ],
+      "clip": [
+        "409",
+        1
+      ],
+      "lora_name": "Flux_Moderninterior.safetensors",
+      "strength_model": 0.20000000000000004,
+      "strength_clip": 1.0000000000000002
+    }
+  },
+  "409": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "425",
+        0
+      ],
+      "clip": [
+        "429",
+        0
+      ],
+      "lora_name": "flux-lora-大家电场景图.safetensors",
+      "strength_model": 0.6,
+      "strength_clip": 1.0000000000000002
+    }
+  },
+  "412": {
+    "class_type": "RH_Translator",
+    "inputs": {}
+  },
+  "413": {
+    "class_type": "PrimitiveBoolean",
+    "inputs": {
+      "value": true
+    }
+  },
+  "415": {
+    "class_type": "PrimitiveBoolean",
+    "inputs": {
+      "value": true
+    }
+  },
+  "425": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Flux.Krea.FP8_fast.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "428": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "429": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "430": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "426",
+        0
+      ],
+      "clip": [
+        "407",
+        1
+      ]
+    }
+  },
+  "431": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "432": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "428",
+        0
+      ],
+      "vae": [
+        "431",
+        0
+      ]
+    }
+  },
+  "433": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "434": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "425",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 30,
+      "denoise": [
+        "443",
+        0
+      ]
+    }
+  },
+  "435": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "404",
+        0
+      ],
+      "guider": [
+        "436",
+        0
+      ],
+      "sampler": [
+        "405",
+        0
+      ],
+      "sigmas": [
+        "434",
+        0
+      ],
+      "latent_image": [
+        "406",
+        0
+      ]
+    }
+  },
+  "436": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "407",
+        0
+      ],
+      "conditioning": [
+        "437",
+        0
+      ]
+    }
+  },
+  "437": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "430",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "441": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "438",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_09"
+    }
+  },
+  "444": {
+    "class_type": "RH_Captioner",
+    "inputs": {}
+  },
+  "417": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "491": {
+    "class_type": "CR Text Concatenate",
+    "inputs": {}
+  },
+  "418": {
+    "class_type": "easy ifElse",
+    "inputs": {}
+  },
+  "426": {
+    "class_type": "easy ifElse",
+    "inputs": {}
+  },
+  "494": {
+    "class_type": "RH_Prompter",
+    "inputs": {}
+  },
+  "497": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "499": {
+    "class_type": "CR Text",
+    "inputs": {}
+  },
+  "500": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "501": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "533",
+        0
+      ],
+      "clip": [
+        "536",
+        0
+      ],
+      "lora_name": "flux-lora-大家电场景图.safetensors",
+      "strength_model": 0.6,
+      "strength_clip": 0.6
+    }
+  },
+  "502": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "509",
+        0
+      ],
+      "clip": [
+        "509",
+        1
+      ],
+      "lora_name": "flux.1_家居_原木风家居设计.v1.0.safetensors",
+      "strength_model": 0.3,
+      "strength_clip": 0.3
+    }
+  },
+  "503": {
+    "class_type": "SetUnionControlNetType",
+    "inputs": {
+      "control_net": [
+        "508",
+        0
+      ],
+      "type": "auto"
+    }
+  },
+  "506": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "504",
+        0
+      ]
+    }
+  },
+  "508": {
+    "class_type": "ControlNetLoaderAdvanced",
+    "inputs": {}
+  },
+  "509": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "501",
+        0
+      ],
+      "clip": [
+        "501",
+        1
+      ],
+      "lora_name": "Flux_Moderninterior.safetensors",
+      "strength_model": 0.2,
+      "strength_clip": 0.2
+    }
+  },
+  "513": {
+    "class_type": "RH_Translator",
+    "inputs": {}
+  },
+  "514": {
+    "class_type": "PrimitiveBoolean",
+    "inputs": {
+      "value": true
+    }
+  },
+  "516": {
+    "class_type": "PrimitiveBoolean",
+    "inputs": {
+      "value": true
+    }
+  },
+  "518": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "519": {
+    "class_type": "easy ifElse",
+    "inputs": {}
+  },
+  "520": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "526": {
+    "class_type": "RH_Captioner",
+    "inputs": {}
+  },
+  "528": {
+    "class_type": "Int",
+    "inputs": {}
+  },
+  "529": {
+    "class_type": "CR Text",
+    "inputs": {}
+  },
+  "530": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "531": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "543",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_09"
+    }
+  },
+  "532": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "533": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Flux.Krea.FP8_fast.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "535": {
+    "class_type": "CLIPTextEncodeFlux",
+    "inputs": {
+      "clip": [
+        "502",
+        1
+      ],
+      "clip_l": "",
+      "t5xxl": [
+        "527",
+        0
+      ],
+      "guidance": ""
+    }
+  },
+  "536": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "537": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "538": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "535",
+        0
+      ]
+    }
+  },
+  "539": {
+    "class_type": "ControlNetApplySD3",
+    "inputs": {
+      "positive": [
+        "535",
+        0
+      ],
+      "negative": [
+        "538",
+        0
+      ],
+      "control_net": [
+        "503",
+        0
+      ],
+      "vae": [
+        "537",
+        0
+      ],
+      "image": [
+        "504",
+        0
+      ],
+      "strength": 0.5000000000000001,
+      "start_percent": 0,
+      "end_percent": 0.8
+    }
+  },
+  "541": {
+    "class_type": "CR Latent Batch Size",
+    "inputs": {}
+  },
+  "495": {
+    "class_type": "RH_Prompter",
+    "inputs": {}
+  },
+  "496": {
+    "class_type": "CR Text Concatenate",
+    "inputs": {}
+  },
+  "527": {
+    "class_type": "easy ifElse",
+    "inputs": {}
+  },
+  "505": {
+    "class_type": "ImpactSwitch",
+    "inputs": {
+      "select": 1,
+      "sel_mode": false,
+      "input1": [
+        "545",
+        0
+      ]
+    }
+  },
+  "534": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "246": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "545": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "546": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "547": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "548": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "543": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "542",
+        0
+      ],
+      "vae": [
+        "537",
+        0
+      ]
+    }
+  },
+  "504": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "540": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "532",
+        0
+      ],
+      "vae": [
+        "537",
+        0
+      ]
+    }
+  },
+  "427": {
+    "class_type": "Int",
+    "inputs": {}
+  },
+  "544": {
+    "class_type": "Int",
+    "inputs": {}
+  },
+  "406": {
+    "class_type": "CR Latent Batch Size",
+    "inputs": {}
+  },
+  "550": {
+    "class_type": "Int",
+    "inputs": {}
+  },
+  "542": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "502",
+        0
+      ],
+      "seed": 92065276683077,
+      "steps": "randomize",
+      "cfg": 30,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "539",
+        0
+      ],
+      "negative": [
+        "539",
+        1
+      ],
+      "latent_image": [
+        "541",
+        0
+      ],
+      "denoise": [
+        "510",
+        0
+      ]
+    }
+  },
+  "510": {
+    "class_type": "easy float",
+    "inputs": {}
+  },
+  "252": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "443": {
+    "class_type": "easy float",
+    "inputs": {}
+  },
+  "438": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "435",
+        0
+      ],
+      "vae": [
+        "431",
+        0
+      ]
+    }
+  },
+  "440": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "439": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_03.png"
+    }
+  },
+  "419": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "492": {
+    "class_type": "CR Text",
+    "inputs": {}
+  },
+  "493": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  }
+}

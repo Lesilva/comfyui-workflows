@@ -1,0 +1,222 @@
+{
+  "121": {
+    "class_type": "PathchSageAttentionKJ",
+    "inputs": {}
+  },
+  "128": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    }
+  },
+  "130": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "118",
+        0
+      ],
+      "vae": [
+        "127",
+        0
+      ]
+    }
+  },
+  "119": {
+    "class_type": "PathchSageAttentionKJ",
+    "inputs": {}
+  },
+  "135": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "130",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_37",
+      "format": "format",
+      "pingpong": "pingpong",
+      "save_output": "save_output",
+      "audio": "videopreview"
+    }
+  },
+  "127": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "Wan2_1_VAE_bf16.safetensors"
+    }
+  },
+  "115": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "121",
+        0
+      ],
+      "shift": 8.000000000000002
+    }
+  },
+  "116": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "119",
+        0
+      ],
+      "shift": 8
+    }
+  },
+  "117": {
+    "class_type": "KSamplerAdvanced",
+    "inputs": {
+      "model": [
+        "115",
+        0
+      ],
+      "add_noise": "enable",
+      "noise_seed": 842751265356174,
+      "steps": "randomize",
+      "cfg": 8,
+      "sampler_name": 1,
+      "scheduler": "lcm",
+      "positive": [
+        "136",
+        0
+      ],
+      "negative": [
+        "136",
+        1
+      ],
+      "latent_image": [
+        "136",
+        2
+      ],
+      "start_at_step": "simple",
+      "end_at_step": 0,
+      "return_with_leftover_noise": 4
+    }
+  },
+  "113": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "clip": [
+        "128",
+        0
+      ]
+    }
+  },
+  "118": {
+    "class_type": "KSamplerAdvanced",
+    "inputs": {
+      "model": [
+        "116",
+        0
+      ],
+      "add_noise": "disable",
+      "noise_seed": 1015494337380221,
+      "steps": "randomize",
+      "cfg": 8,
+      "sampler_name": 1,
+      "scheduler": "lcm",
+      "positive": [
+        "136",
+        0
+      ],
+      "negative": [
+        "136",
+        1
+      ],
+      "latent_image": [
+        "117",
+        0
+      ],
+      "start_at_step": "simple",
+      "end_at_step": 4,
+      "return_with_leftover_noise": 10000
+    }
+  },
+  "132": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": {}
+  },
+  "133": {
+    "class_type": "UnetLoaderGGUF",
+    "inputs": {}
+  },
+  "136": {
+    "class_type": "WanImageToVideo",
+    "inputs": {
+      "positive": [
+        "134",
+        0
+      ],
+      "negative": [
+        "113",
+        0
+      ],
+      "vae": [
+        "127",
+        0
+      ],
+      "width": 480,
+      "height": 832,
+      "length": 81,
+      "batch_size": 1
+    }
+  },
+  "131": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "130",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_37",
+      "format": "format",
+      "pingpong": "pix_fmt",
+      "save_output": "crf",
+      "audio": "save_metadata",
+      "meta_batch": "trim_to_audio",
+      "vae": "pingpong"
+    }
+  },
+  "134": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "电影级镜头：东方美人穿着黑色透明花卉旗袍，黑色丝袜从远处慢慢走来，丰满的胸部上下晃动",
+      "clip": [
+        "128",
+        0
+      ]
+    }
+  },
+  "125": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "lora_name": "wan\\Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank64.safetensors",
+      "strength_model": 1
+    }
+  },
+  "124": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "132",
+        0
+      ],
+      "lora_name": "wan\\Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank64.safetensors",
+      "strength_model": 3.0000000000000004
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "28": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "12",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_16"
+    }
+  },
+  "23": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "20": {
+    "class_type": "CompositorConfig3",
+    "inputs": {}
+  },
+  "19": {
+    "class_type": "Compositor3",
+    "inputs": {}
+  },
+  "29": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "19",
+        1
+      ]
+    }
+  },
+  "4": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp8_e4m3fn.safetensors",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "17": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_16"
+    }
+  },
+  "18": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "2": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "3",
+        0
+      ],
+      "lora_name": "kontext_全能融图丨透视矫正丨打光丨合成丨产品换背景_Kontext_融图矫正透视",
+      "strength_model": 1.2
+    }
+  },
+  "3": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "13": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "12",
+        0
+      ],
+      "vae": [
+        "14",
+        0
+      ]
+    }
+  },
+  "7": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "5",
+        0
+      ],
+      "latent": [
+        "13",
+        0
+      ]
+    }
+  },
+  "15": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "1",
+        0
+      ],
+      "vae": [
+        "14",
+        0
+      ]
+    }
+  },
+  "16": {
+    "class_type": "LayerUtility: ImageScaleRestore V2",
+    "inputs": {}
+  },
+  "11": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "1": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "seed": 162752792643024,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "8",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "13",
+        0
+      ],
+      "denoise": "normal"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "The main body of the product is fixed (the shape/angle/orientation remains unchanged), and the scene rigidly rotates around the main body to adapt to the viewing angle (the vanishing point/line is aligned with the main body's viewing angle), maintaining the relative position of the elements in the scene; the light and shadow, tone match the scene, and the edges are naturally connected, eliminating the sense of splicing, and the main body of the product is integrated with the real space of the scene.",
+      "clip": [
+        "4",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "7",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "9": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "5",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "11",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "21": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "26": {
+    "class_type": "easy imageRemBg",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  }
+}

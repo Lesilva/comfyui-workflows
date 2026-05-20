@@ -1,0 +1,257 @@
+{
+  "11": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "万相2.2文生图fp8量化模型 Wan2.2_t2v_14B_fp8_scaled-v1_v1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "29": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    }
+  },
+  "24": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "32",
+        0
+      ],
+      "vae": [
+        "12",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "Wan2_1_VAE_bf16.safetensors"
+    }
+  },
+  "18": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "24",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_43"
+    }
+  },
+  "27": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "过曝，细节模糊不清，字幕，风格，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，杂乱的背景，三条腿，",
+      "clip": [
+        "29",
+        0
+      ]
+    }
+  },
+  "51": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "47",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_43"
+    }
+  },
+  "56": {
+    "class_type": "ImageResizeKJv2",
+    "inputs": {}
+  },
+  "52": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "60",
+        0
+      ],
+      "clip": [
+        "44",
+        0
+      ]
+    }
+  },
+  "49": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "56",
+        0
+      ],
+      "vae": [
+        "43",
+        0
+      ]
+    }
+  },
+  "59": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "47": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "55",
+        0
+      ],
+      "vae": [
+        "43",
+        0
+      ]
+    }
+  },
+  "16": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "shift": 3.5
+    }
+  },
+  "62": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "45",
+        0
+      ],
+      "shift": 3.5
+    }
+  },
+  "60": {
+    "class_type": "Text Concatenate (JPS)",
+    "inputs": {}
+  },
+  "45": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "万相2.2文生图fp8量化模型 Wan2.2_t2v_14B_fp8_scaled-v1_v1",
+      "weight_dtype": "default"
+    }
+  },
+  "44": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    }
+  },
+  "43": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "Wan2_1_VAE_bf16.safetensors"
+    }
+  },
+  "53": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "55": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "62",
+        0
+      ],
+      "seed": 274562452901697,
+      "steps": "randomize",
+      "cfg": 25,
+      "sampler_name": 3.5,
+      "scheduler": "euler",
+      "positive": [
+        "52",
+        0
+      ],
+      "negative": [
+        "48",
+        0
+      ],
+      "latent_image": [
+        "49",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "61": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "48": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，杂乱的背景，三条腿",
+      "clip": [
+        "44",
+        0
+      ]
+    }
+  },
+  "57": {
+    "class_type": "Joy_caption_two",
+    "inputs": {}
+  },
+  "42": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 800,
+      "height": 1280,
+      "batch_size": 1
+    }
+  },
+  "28": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "这张图片展示了一位年轻女性在户外的场景。人像特写镜头，她站在一片开满小花的草地上，背景是一片清澈的蓝天，给人一种宁静和清新的感觉。她穿着一件白色的上衣，上面点缀着一些小花图案，与周围的自然环境相得益彰。她的头发被梳理得整齐而优雅，随风轻轻飘动，增添了几分生动感。她手中拿着一束白色的花，花束中的花朵盛开，显得格外纯洁和美丽。她的姿态优雅，似乎在欣赏或轻嗅手中的花束，表情平静而专注，仿佛在享受这一刻的宁静和美好。整体画面色彩明亮，充满了春天的气息，给人一种温暖和愉悦的感觉。",
+      "clip": [
+        "29",
+        0
+      ]
+    }
+  },
+  "32": {
+    "class_type": "KSamplerAdvanced",
+    "inputs": {
+      "model": [
+        "16",
+        0
+      ],
+      "add_noise": "enable",
+      "noise_seed": 38432824612868,
+      "steps": "randomize",
+      "cfg": 30,
+      "sampler_name": 2.5,
+      "scheduler": "euler",
+      "positive": [
+        "28",
+        0
+      ],
+      "negative": [
+        "27",
+        0
+      ],
+      "latent_image": [
+        "42",
+        0
+      ],
+      "start_at_step": "beta",
+      "end_at_step": 0,
+      "return_with_leftover_noise": 100
+    }
+  }
+}

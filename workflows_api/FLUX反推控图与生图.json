@@ -1,0 +1,480 @@
+{
+  "12": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "Joy_extra_options",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "SetUnionControlNetType",
+    "inputs": {
+      "control_net": [
+        "18",
+        0
+      ],
+      "type": "depth"
+    }
+  },
+  "18": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "FLUX.1-dev-ControlNet-Union-Pro-InstantX.safetensors"
+    }
+  },
+  "19": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "13": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "25": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "20": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "16",
+        0
+      ]
+    }
+  },
+  "16": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "15",
+        0
+      ],
+      "clip": [
+        "24",
+        1
+      ]
+    }
+  },
+  "24": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "25",
+        0
+      ],
+      "clip": [
+        "13",
+        0
+      ],
+      "lora_name": "服装模特-AI模特-亚洲模特-时尚潮流-潮流女装-时尚女装-网红-潮流-时尚-ins-韩系-模特_F.1模特女装-潮流女装-不梵",
+      "strength_model": 0.6,
+      "strength_clip": 0.6
+    }
+  },
+  "21": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "15": {
+    "class_type": "Joy_caption_two_advanced",
+    "inputs": {}
+  },
+  "30": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "28",
+        0
+      ],
+      "height": [
+        "28",
+        1
+      ],
+      "batch_size": 512
+    }
+  },
+  "27": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "28": {
+    "class_type": "GetImageSize+",
+    "inputs": {}
+  },
+  "26": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "29",
+        0
+      ],
+      "vae": [
+        "27",
+        0
+      ]
+    }
+  },
+  "29": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "24",
+        0
+      ],
+      "seed": 254390520446741,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "22",
+        0
+      ],
+      "negative": [
+        "22",
+        1
+      ],
+      "latent_image": [
+        "30",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "39": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4x-UltraSharp"
+    }
+  },
+  "37": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "41": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "High detail, ultra-high resolution, 32K UHD, clear focus, best quality, masterpiece, non-traditional highest masterpiece, exquisite details, depth of field, blurry background, blurry foreground, motion blur, fast-moving masterpiece, deep focus,\nColor graded movies, atmospheric lighting, award-winning film particles, intense shots (visual impact, giving posters a dynamic and visually impactful appearance: 1.2), influential images,\nUltra realistic, high dynamic range, photo level realism, epic level realism, dark shooting, shadows (this is a true high-definition photo: 1.1), with professional photography and high resolution,\nComparison, layered colors, vivid colors, contrast, official art, movie perspective, very beautiful, messy hair, perfect composition, intricate details, unpredictable mood, epic, photo realistic,\nExquisite details, soothing tones, high contrast, natural skin textures, soft lighting, sharp lighting, masterpieces, best quality (ray tracing), crazy interactions between sunlight and light and shadow,",
+      "clip": [
+        "38",
+        0
+      ]
+    }
+  },
+  "42": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),EasyNegative,low quality,worst quality,watermark,sketch,duplicate,ugly,huge eyes,text,logo,monochrome,worst face,(bad and mutated hands:1.3),(worst quality:2),(low quality:2),(blurry:2),(bad hands),(missing fingers),(multiple limbs:1.2),bad anatomy,(interlocked fingers:1.2),Ugly Fingers,(extra digit and hands and fingers and legs and arms:1.4),(deformed fingers:1.2),(long fingers:1.2),(bad-artist-anime),Multiple arms,Multiple legs. poorly drawn face,(by bad-artist:1.2),(mutated hands and fingers:1.5 ),(closed_eyes),(long body :1.3),(mutation, poorly drawn :1.2),lowres,(worst quality, low quality:1.6),normal quality,letterbox,deformed,out of frame,60s,70s,80s,90s,00s,ugly,morbid,mutation,arthropod girl,arthropod limbs,disfigured,extra_arms,extra_ears,extra_breasts,(extra_legs:1.2),multiple_arms,multiple_legs,mutilated,poorly drawnhands,extra fingers,mutated hands,poorly drawn face,bad anatomy,bad proportions,extralimbs,more than 2 nipples,extra limbs,bad anatomy,malformed limbs,missing arms,miss finglegs,mutated hands,fused fingers,too many fingers,long neck,bad finglegs,cropped,bad feet,bad anatomy disfigured,malformed mutated,missing,limb,malformed hands,extre foot,multiple breasts,short legs,long legs,",
+      "clip": [
+        "38",
+        0
+      ]
+    }
+  },
+  "38": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp16",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "40": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "37",
+        0
+      ],
+      "lora_name": "服装模特-AI模特-亚洲模特-时尚潮流-潮流女装-时尚女装-网红-潮流-时尚-ins-韩系-模特_F.1模特女装-潮流女装-不梵",
+      "strength_model": 0.3
+    }
+  },
+  "36": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "43": {
+    "class_type": "UltimateSDUpscale",
+    "inputs": {}
+  },
+  "91": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "92": {
+    "class_type": "Joy_extra_options",
+    "inputs": {}
+  },
+  "96": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "97": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "98": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "99",
+        0
+      ]
+    }
+  },
+  "99": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "103",
+        0
+      ],
+      "clip": [
+        "100",
+        1
+      ]
+    }
+  },
+  "100": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "97",
+        0
+      ],
+      "clip": [
+        "96",
+        0
+      ],
+      "lora_name": "服装模特-AI模特-亚洲模特-时尚潮流-潮流女装-时尚女装-网红-潮流-时尚-ins-韩系-模特_F.1模特女装-潮流女装-不梵",
+      "strength_model": 0.6,
+      "strength_clip": 0.6
+    }
+  },
+  "103": {
+    "class_type": "Joy_caption_two_advanced",
+    "inputs": {}
+  },
+  "104": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "106",
+        0
+      ],
+      "height": [
+        "106",
+        1
+      ],
+      "batch_size": 512
+    }
+  },
+  "109": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4x-UltraSharp"
+    }
+  },
+  "110": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "111": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "High detail, ultra-high resolution, 32K UHD, clear focus, best quality, masterpiece, non-traditional highest masterpiece, exquisite details, depth of field, blurry background, blurry foreground, motion blur, fast-moving masterpiece, deep focus,\nColor graded movies, atmospheric lighting, award-winning film particles, intense shots (visual impact, giving posters a dynamic and visually impactful appearance: 1.2), influential images,\nUltra realistic, high dynamic range, photo level realism, epic level realism, dark shooting, shadows (this is a true high-definition photo: 1.1), with professional photography and high resolution,\nComparison, layered colors, vivid colors, contrast, official art, movie perspective, very beautiful, messy hair, perfect composition, intricate details, unpredictable mood, epic, photo realistic,\nExquisite details, soothing tones, high contrast, natural skin textures, soft lighting, sharp lighting, masterpieces, best quality (ray tracing), crazy interactions between sunlight and light and shadow,",
+      "clip": [
+        "113",
+        0
+      ]
+    }
+  },
+  "112": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),EasyNegative,low quality,worst quality,watermark,sketch,duplicate,ugly,huge eyes,text,logo,monochrome,worst face,(bad and mutated hands:1.3),(worst quality:2),(low quality:2),(blurry:2),(bad hands),(missing fingers),(multiple limbs:1.2),bad anatomy,(interlocked fingers:1.2),Ugly Fingers,(extra digit and hands and fingers and legs and arms:1.4),(deformed fingers:1.2),(long fingers:1.2),(bad-artist-anime),Multiple arms,Multiple legs. poorly drawn face,(by bad-artist:1.2),(mutated hands and fingers:1.5 ),(closed_eyes),(long body :1.3),(mutation, poorly drawn :1.2),lowres,(worst quality, low quality:1.6),normal quality,letterbox,deformed,out of frame,60s,70s,80s,90s,00s,ugly,morbid,mutation,arthropod girl,arthropod limbs,disfigured,extra_arms,extra_ears,extra_breasts,(extra_legs:1.2),multiple_arms,multiple_legs,mutilated,poorly drawnhands,extra fingers,mutated hands,poorly drawn face,bad anatomy,bad proportions,extralimbs,more than 2 nipples,extra limbs,bad anatomy,malformed limbs,missing arms,miss finglegs,mutated hands,fused fingers,too many fingers,long neck,bad finglegs,cropped,bad feet,bad anatomy disfigured,malformed mutated,missing,limb,malformed hands,extre foot,multiple breasts,short legs,long legs,",
+      "clip": [
+        "113",
+        0
+      ]
+    }
+  },
+  "113": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp16",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "114": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "110",
+        0
+      ],
+      "lora_name": "服装模特-AI模特-亚洲模特-时尚潮流-潮流女装-时尚女装-网红-潮流-时尚-ins-韩系-模特_F.1模特女装-潮流女装-不梵",
+      "strength_model": 0.3
+    }
+  },
+  "115": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "102": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "117": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "116",
+        0
+      ]
+    }
+  },
+  "105": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "106": {
+    "class_type": "GetImageSize+",
+    "inputs": {}
+  },
+  "116": {
+    "class_type": "UltimateSDUpscale",
+    "inputs": {}
+  },
+  "107": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "108",
+        0
+      ],
+      "vae": [
+        "105",
+        0
+      ]
+    }
+  },
+  "108": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "100",
+        0
+      ],
+      "seed": 987994452352163,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "99",
+        0
+      ],
+      "negative": [
+        "98",
+        0
+      ],
+      "latent_image": [
+        "104",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "31": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "121": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "22": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "16",
+        0
+      ],
+      "negative": [
+        "20",
+        0
+      ],
+      "control_net": [
+        "17",
+        0
+      ],
+      "image": [
+        "19",
+        0
+      ],
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 0.9,
+      "vae": [
+        "27",
+        0
+      ]
+    }
+  },
+  "118": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_03.png"
+    }
+  },
+  "44": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "43",
+        0
+      ]
+    }
+  }
+}

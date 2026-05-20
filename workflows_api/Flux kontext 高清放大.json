@@ -1,0 +1,211 @@
+{
+  "230": {
+    "class_type": "PrimitiveInt",
+    "inputs": {
+      "value": 3072
+    }
+  },
+  "226": {
+    "class_type": "Seed",
+    "inputs": {}
+  },
+  "231": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "FLUX.1-Kontext-dev-fp8_v1",
+      "weight_dtype": "default"
+    }
+  },
+  "233": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "231",
+        0
+      ],
+      "lora_name": "KontextHiRes_Kontext_高分辨率细节优化_V1.0",
+      "strength_model": 1
+    }
+  },
+  "235": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "234": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "237": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "236": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "239": {
+    "class_type": "LayerUtility: NumberCalculatorV2",
+    "inputs": {}
+  },
+  "241": {
+    "class_type": "LayerUtility: NumberCalculatorV2",
+    "inputs": {}
+  },
+  "242": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "245": {
+    "class_type": "ImageBatchToList|fofo",
+    "inputs": {}
+  },
+  "246": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "high quality, detailed, ",
+      "clip": [
+        "234",
+        0
+      ]
+    }
+  },
+  "244": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "266": {
+    "class_type": "TeaCache",
+    "inputs": {}
+  },
+  "249": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "245",
+        0
+      ],
+      "vae": [
+        "235",
+        0
+      ]
+    }
+  },
+  "251": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "246",
+        0
+      ],
+      "latent": [
+        "249",
+        0
+      ]
+    }
+  },
+  "253": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "246",
+        0
+      ]
+    }
+  },
+  "255": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "266",
+        0
+      ],
+      "seed": [
+        "226",
+        3
+      ],
+      "steps": 768205920149049,
+      "cfg": "randomize",
+      "sampler_name": 25,
+      "scheduler": 1,
+      "positive": [
+        "252",
+        0
+      ],
+      "negative": [
+        "253",
+        0
+      ],
+      "latent_image": [
+        "249",
+        0
+      ],
+      "denoise": "euler"
+    }
+  },
+  "264": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "255",
+        0
+      ],
+      "vae": [
+        "235",
+        0
+      ]
+    }
+  },
+  "257": {
+    "class_type": "ImageListToBatch_",
+    "inputs": {}
+  },
+  "263": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "223": {
+    "class_type": "LayerUtility: ImageMaskScaleAs",
+    "inputs": {}
+  },
+  "262": {
+    "class_type": "LayerColor: ColorAdapter",
+    "inputs": {}
+  },
+  "260": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "223",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_10"
+    }
+  },
+  "265": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "224": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "252": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "251",
+        0
+      ],
+      "guidance": 3.5
+    }
+  }
+}

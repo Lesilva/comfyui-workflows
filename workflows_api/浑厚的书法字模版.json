@@ -1,0 +1,137 @@
+{
+  "11": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Qwen_Image_fp8",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "12": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "13": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    }
+  },
+  "17": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {
+      "width": 800,
+      "height": 1200,
+      "batch_size": 1
+    }
+  },
+  "18": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift": 3
+    }
+  },
+  "22": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "模糊，",
+      "clip": [
+        "12",
+        0
+      ]
+    }
+  },
+  "15": {
+    "class_type": "easy clearCacheAll",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "23",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    }
+  },
+  "14": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "16",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_58"
+    }
+  },
+  "20": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "10",
+        0
+      ],
+      "lora_name": "【书法笔触增强】国潮书法手写体_v1",
+      "strength_model": 0.85
+    }
+  },
+  "10": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "lora_name": "Qwen-Image-lightning-4steps-v1_Qwen-Image-lightning-4steps-v1",
+      "strength_model": 1
+    }
+  },
+  "23": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "18",
+        0
+      ],
+      "seed": 912156715157212,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "21",
+        0
+      ],
+      "negative": [
+        "22",
+        0
+      ],
+      "latent_image": [
+        "17",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "21": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "书法字：“尊属小谢”,排版错落有致，风格豪放有力,笔画厚重苍劲,枯笔与飞白结合,墨色浓淡交错增添层次感,字形结构紧凑而富有动感,夸张了笔画的起伏与转折,背景为纯黑色,字的白色形成鲜明对比,笔法运用了逆锋起笔与横扫收笔,中锋与侧锋的交替使用使书法作品具有韵律感,字间大小差异明显,整体呈现出强烈的视觉冲击力。",
+      "clip": [
+        "12",
+        0
+      ]
+    }
+  }
+}

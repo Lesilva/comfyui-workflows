@@ -1,0 +1,548 @@
+{
+  "27": {
+    "class_type": "Anything Everywhere3",
+    "inputs": {}
+  },
+  "29": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "28": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "118": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "30",
+        0
+      ],
+      "lora_name": "Kontext-改变动作_1.0",
+      "strength_model": 1
+    }
+  },
+  "30": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "123": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "122",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "122": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "141",
+        0
+      ]
+    }
+  },
+  "124": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 2842626975500,
+      "seed": "randomize",
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "123",
+        0
+      ],
+      "negative": [
+        "121",
+        0
+      ],
+      "latent_image": 1
+    }
+  },
+  "90": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "125",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_19"
+    }
+  },
+  "121": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "141",
+        0
+      ]
+    }
+  },
+  "141": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "140",
+        0
+      ],
+      "clip": "Using this elegant style, create a portrait of a swan wearing a pearl tiara and lace collar, maintaining the same refined quality and soft color tones."
+    }
+  },
+  "125": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "124",
+        0
+      ]
+    }
+  },
+  "198": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "199",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "199": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "204",
+        0
+      ]
+    }
+  },
+  "200": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 880998952727164,
+      "seed": "randomize",
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "198",
+        0
+      ],
+      "negative": [
+        "203",
+        0
+      ],
+      "latent_image": 1
+    }
+  },
+  "201": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "205",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_19"
+    }
+  },
+  "203": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "204",
+        0
+      ]
+    }
+  },
+  "204": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "202",
+        0
+      ],
+      "clip": "Using this elegant style, create a portrait of a swan wearing a pearl tiara and lace collar, maintaining the same refined quality and soft color tones."
+    }
+  },
+  "205": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "200",
+        0
+      ]
+    }
+  },
+  "206": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "207",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "207": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "212",
+        0
+      ]
+    }
+  },
+  "208": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 648442667609391,
+      "seed": "randomize",
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "206",
+        0
+      ],
+      "negative": [
+        "211",
+        0
+      ],
+      "latent_image": 1
+    }
+  },
+  "209": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "213",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_19"
+    }
+  },
+  "211": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "212",
+        0
+      ]
+    }
+  },
+  "212": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "210",
+        0
+      ],
+      "clip": "Using this elegant style, create a portrait of a swan wearing a pearl tiara and lace collar, maintaining the same refined quality and soft color tones."
+    }
+  },
+  "213": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "208",
+        0
+      ]
+    }
+  },
+  "214": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "215",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "215": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "220",
+        0
+      ]
+    }
+  },
+  "216": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 647975512813007,
+      "seed": "randomize",
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "214",
+        0
+      ],
+      "negative": [
+        "219",
+        0
+      ],
+      "latent_image": 1
+    }
+  },
+  "217": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "221",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_19"
+    }
+  },
+  "219": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "220",
+        0
+      ]
+    }
+  },
+  "220": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "218",
+        0
+      ],
+      "clip": "Using this elegant style, create a portrait of a swan wearing a pearl tiara and lace collar, maintaining the same refined quality and soft color tones."
+    }
+  },
+  "221": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "216",
+        0
+      ]
+    }
+  },
+  "222": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "223",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "223": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "228",
+        0
+      ]
+    }
+  },
+  "224": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 628165482875872,
+      "seed": "randomize",
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "222",
+        0
+      ],
+      "negative": [
+        "227",
+        0
+      ],
+      "latent_image": 1
+    }
+  },
+  "225": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "229",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_19"
+    }
+  },
+  "227": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "228",
+        0
+      ]
+    }
+  },
+  "228": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "226",
+        0
+      ],
+      "clip": "Using this elegant style, create a portrait of a swan wearing a pearl tiara and lace collar, maintaining the same refined quality and soft color tones."
+    }
+  },
+  "229": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "224",
+        0
+      ]
+    }
+  },
+  "230": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "231",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "231": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "236",
+        0
+      ]
+    }
+  },
+  "232": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 716056511018744,
+      "seed": "randomize",
+      "steps": 20,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "230",
+        0
+      ],
+      "negative": [
+        "235",
+        0
+      ],
+      "latent_image": 1
+    }
+  },
+  "233": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "237",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_19"
+    }
+  },
+  "235": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "236",
+        0
+      ]
+    }
+  },
+  "236": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "234",
+        0
+      ],
+      "clip": "Using this elegant style, create a portrait of a swan wearing a pearl tiara and lace collar, maintaining the same refined quality and soft color tones."
+    }
+  },
+  "237": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "232",
+        0
+      ]
+    }
+  },
+  "100": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "101",
+        0
+      ]
+    }
+  },
+  "238": {
+    "class_type": "Anything Everywhere",
+    "inputs": {}
+  },
+  "102": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "101": {
+    "class_type": "ConstrainImage|pysssss",
+    "inputs": {}
+  },
+  "140": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "202": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "210": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "218": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "226": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "234": {
+    "class_type": "JjkText",
+    "inputs": {}
+  }
+}

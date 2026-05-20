@@ -1,0 +1,481 @@
+{
+  "name": "comfyui-workflows-public-share",
+  "format": "comfyui_api_workflows",
+  "workflow_count": 67,
+  "sanitized": true,
+  "contains_models": false,
+  "contains_assets": false,
+  "contains_api_keys": false,
+  "notes_zh": "公开分享版。输入素材名、输出前缀、私人路径、内网地址和测试记录已脱敏。",
+  "workflows": [
+    {
+      "index": 1,
+      "filename": "FLUX 文生图 + ControlNet + 支持中文输入.json",
+      "path": "workflows_api/FLUX 文生图 + ControlNet + 支持中文输入.json",
+      "category": "general",
+      "description_zh": "FLUX 文生图，带 ControlNet 结构控制，并支持中文提示词。"
+    },
+    {
+      "index": 2,
+      "filename": "FLUX-FILL-扩图-质感扩图.json",
+      "path": "workflows_api/FLUX-FILL-扩图-质感扩图.json",
+      "category": "general",
+      "description_zh": "FLUX Fill 扩图，适合保留材质和质感的画布外扩。"
+    },
+    {
+      "index": 3,
+      "filename": "FLUX-产品生成背景.json",
+      "path": "workflows_api/FLUX-产品生成背景.json",
+      "category": "product_commerce",
+      "description_zh": "产品抠图/分割后生成 AI 广告背景。"
+    },
+    {
+      "index": 4,
+      "filename": "FLUX反推控图与生图.json",
+      "path": "workflows_api/FLUX反推控图与生图.json",
+      "category": "general",
+      "description_zh": "图片反推提示词，再用 FLUX 做受控再生成。"
+    },
+    {
+      "index": 5,
+      "filename": "FLUX最优高质量洗图增加质感细节修复质感提升产品人物细节稳定工作流细节修复质感提升产品人物细节稳定.json",
+      "path": "workflows_api/FLUX最优高质量洗图增加质感细节修复质感提升产品人物细节稳定工作流细节修复质感提升产品人物细节稳定.json",
+      "category": "upscale_restore",
+      "description_zh": "源图清理、质感增强、细节修复，适合产品和人物低重绘精修。"
+    },
+    {
+      "index": 6,
+      "filename": "FOX-XL-Illustrious-ControlNet辅助文生图.json",
+      "path": "workflows_api/FOX-XL-Illustrious-ControlNet辅助文生图.json",
+      "category": "general",
+      "description_zh": "SDXL/Illustrious 动漫文生图，带 ControlNet、脸部细化和放大辅助。"
+    },
+    {
+      "index": 7,
+      "filename": "Fill One reward局部重绘工作流.json",
+      "path": "workflows_api/Fill One reward局部重绘工作流.json",
+      "category": "general",
+      "description_zh": "OneReward FLUX Fill 局部重绘，适合蒙版区域替换或修复。"
+    },
+    {
+      "index": 8,
+      "filename": "Fill-flux-dev 重绘 OneReward fp8 工作流 .json",
+      "path": "workflows_api/Fill-flux-dev 重绘 OneReward fp8 工作流 .json",
+      "category": "general",
+      "description_zh": "fp8 OneReward FLUX Fill 局部重绘，适合较低显存设置。"
+    },
+    {
+      "index": 9,
+      "filename": "Flux Krea 图生图+自动提示词+润色+ControlNet.json",
+      "path": "workflows_api/Flux Krea 图生图+自动提示词+润色+ControlNet.json",
+      "category": "general",
+      "description_zh": "参考图图生图，自动反推/润色提示词并使用 ControlNet 保结构。"
+    },
+    {
+      "index": 10,
+      "filename": "Flux kontext 高清放大.json",
+      "path": "workflows_api/Flux kontext 高清放大.json",
+      "category": "upscale_restore",
+      "description_zh": "Flux Kontext 高清分块放大和细节优化。"
+    },
+    {
+      "index": 11,
+      "filename": "Flux-TTP-tile高清放大修复高清无损放大.json",
+      "path": "workflows_api/Flux-TTP-tile高清放大修复高清无损放大.json",
+      "category": "upscale_restore",
+      "description_zh": "TTP 分块 FLUX 放大与修复，适合高清无损感修复。"
+    },
+    {
+      "index": 12,
+      "filename": "Flux.1-Dev-SRPO工作流｜3倍于Flux美感.json",
+      "path": "workflows_api/Flux.1-Dev-SRPO工作流｜3倍于Flux美感.json",
+      "category": "general",
+      "description_zh": "高审美 FLUX SRPO 文生图工作流。"
+    },
+    {
+      "index": 13,
+      "filename": "Flux电商产品换背景、.json",
+      "path": "workflows_api/Flux电商产品换背景、.json",
+      "category": "product_commerce",
+      "description_zh": "电商产品换背景，尽量保持产品主体不变。"
+    },
+    {
+      "index": 14,
+      "filename": "Flux电商产品精修.json",
+      "path": "workflows_api/Flux电商产品精修.json",
+      "category": "product_commerce",
+      "description_zh": "电商产品精修、白底清洁、商业品质提升。"
+    },
+    {
+      "index": 15,
+      "filename": "HYPIR图像2K4K8K超高清放大降噪修复强化.json",
+      "path": "workflows_api/HYPIR图像2K4K8K超高清放大降噪修复强化.json",
+      "category": "upscale_restore",
+      "description_zh": "HYPIR 超分、降噪和图像修复，适合 2K/4K/8K 增强。"
+    },
+    {
+      "index": 16,
+      "filename": "Kontext 电商角度自适应自动纠正透视场景产品融图.json",
+      "path": "workflows_api/Kontext 电商角度自适应自动纠正透视场景产品融图.json",
+      "category": "product_commerce",
+      "description_zh": "产品场景融合，自动适配角度和透视。"
+    },
+    {
+      "index": 17,
+      "filename": "Kontext 绝对无损放大.json",
+      "path": "workflows_api/Kontext 绝对无损放大.json",
+      "category": "upscale_restore",
+      "description_zh": "Flux Kontext 分块低损高清放大。"
+    },
+    {
+      "index": 18,
+      "filename": "Kontext-人物重打光V2.json",
+      "path": "workflows_api/Kontext-人物重打光V2.json",
+      "category": "portrait_character",
+      "description_zh": "人物/人像重打光，可控制光源方向。"
+    },
+    {
+      "index": 19,
+      "filename": "Kontext-保持角色一致-改变动作 .json",
+      "path": "workflows_api/Kontext-保持角色一致-改变动作 .json",
+      "category": "general",
+      "description_zh": "保持角色一致，生成动作或姿势变化组。"
+    },
+    {
+      "index": 20,
+      "filename": "Kontext人物换姿势【解决一致性】.json",
+      "path": "workflows_api/Kontext人物换姿势【解决一致性】.json",
+      "category": "portrait_character",
+      "description_zh": "人物换姿势，同时尽量保持身份和服装一致。"
+    },
+    {
+      "index": 21,
+      "filename": "PS高阶-光影优化V2.json",
+      "path": "workflows_api/PS高阶-光影优化V2.json",
+      "category": "general",
+      "description_zh": "类似 PS 的高阶光影优化，适合人像或产品光影清理。"
+    },
+    {
+      "index": 22,
+      "filename": "Qwen Edit衣服提取工作流.json",
+      "path": "workflows_api/Qwen Edit衣服提取工作流.json",
+      "category": "image_editing",
+      "description_zh": "Qwen Image Edit 衣服提取，用于准备服装素材。"
+    },
+    {
+      "index": 23,
+      "filename": "Wan2.2 动态壁纸生成器 🚀.json",
+      "path": "workflows_api/Wan2.2 动态壁纸生成器 🚀.json",
+      "category": "video",
+      "description_zh": "Wan 2.2 图生视频动态壁纸。"
+    },
+    {
+      "index": 24,
+      "filename": "Wan2.2极速文生视频KJ版本（已确保跑通）.json",
+      "path": "workflows_api/Wan2.2极速文生视频KJ版本（已确保跑通）.json",
+      "category": "video",
+      "description_zh": "Wan 2.2 极速文生视频 KJ 版本，原文件标注已确保跑通。"
+    },
+    {
+      "index": 25,
+      "filename": "flux reward修手工作流.json",
+      "path": "workflows_api/flux reward修手工作流.json",
+      "category": "general",
+      "description_zh": "FLUX Fill 修手，适合修复手指和手部结构。"
+    },
+    {
+      "index": 26,
+      "filename": "instant id 换脸 _ 一键在线运行.json",
+      "path": "workflows_api/instant id 换脸 _ 一键在线运行.json",
+      "category": "general",
+      "description_zh": "InstantID 换脸/身份迁移。"
+    },
+    {
+      "index": 27,
+      "filename": "kontext_全能溶图打光.json",
+      "path": "workflows_api/kontext_全能溶图打光.json",
+      "category": "image_editing",
+      "description_zh": "通用溶图和重打光，适合融合感和光影统一。"
+    },
+    {
+      "index": 28,
+      "filename": "kontext工作流 （人像光影）.json",
+      "path": "workflows_api/kontext工作流 （人像光影）.json",
+      "category": "portrait_character",
+      "description_zh": "人像光影调整，保持人物可识别同时改善光照。"
+    },
+    {
+      "index": 29,
+      "filename": "kontext电商产品打光_渲染.json",
+      "path": "workflows_api/kontext电商产品打光_渲染.json",
+      "category": "product_commerce",
+      "description_zh": "电商产品打光和渲染精修。"
+    },
+    {
+      "index": 30,
+      "filename": "kontext筋膜枪_手机等各类手持_融图.json",
+      "path": "workflows_api/kontext筋膜枪_手机等各类手持_融图.json",
+      "category": "general",
+      "description_zh": "手机、筋膜枪等手持产品融图。"
+    },
+    {
+      "index": 31,
+      "filename": "miluo丨版画艺术生成器.json",
+      "path": "workflows_api/miluo丨版画艺术生成器.json",
+      "category": "general",
+      "description_zh": "版画/雕刻风格艺术生成。"
+    },
+    {
+      "index": 32,
+      "filename": "model_product_showcase_LOCAL_FLUX_KONTEXT_DEV.json",
+      "path": "workflows_api/model_product_showcase_LOCAL_FLUX_KONTEXT_DEV.json",
+      "category": "general",
+      "description_zh": "本地 FLUX.1 Kontext Dev 模特展示产品 workflow 的 ASCII 文件名别名，方便自动化调用。"
+    },
+    {
+      "index": 33,
+      "filename": "qwen—image万物迁移合集.json",
+      "path": "workflows_api/qwen—image万物迁移合集.json",
+      "category": "image_editing",
+      "description_zh": "Qwen Image Edit 万物迁移合集，适合对象/风格迁移。"
+    },
+    {
+      "index": 34,
+      "filename": "wan2.1 vace首尾帧视频.json",
+      "path": "workflows_api/wan2.1 vace首尾帧视频.json",
+      "category": "video",
+      "description_zh": "Wan 2.1 VACE 首尾帧视频生成。"
+    },
+    {
+      "index": 35,
+      "filename": "wan2.1 万相 Q版卡通动漫角色跳舞视频动画.json",
+      "path": "workflows_api/wan2.1 万相 Q版卡通动漫角色跳舞视频动画.json",
+      "category": "video",
+      "description_zh": "Q 版/卡通角色跳舞视频动画。"
+    },
+    {
+      "index": 36,
+      "filename": "wan2.2(动作迁移开高清）.json",
+      "path": "workflows_api/wan2.2(动作迁移开高清）.json",
+      "category": "video",
+      "description_zh": "Wan 2.2 动作迁移，带高清辅助路径。"
+    },
+    {
+      "index": 37,
+      "filename": "wan2.2文生视频(14B)GGUF适合16G以下显存.json",
+      "path": "workflows_api/wan2.2文生视频(14B)GGUF适合16G以下显存.json",
+      "category": "video",
+      "description_zh": "Wan 2.2 14B GGUF 文生视频，适合较低显存实验。"
+    },
+    {
+      "index": 38,
+      "filename": "一键换头，可根据需要是否添加蒙版.json",
+      "path": "workflows_api/一键换头，可根据需要是否添加蒙版.json",
+      "category": "portrait_character",
+      "description_zh": "一键换头，可选蒙版或局部重绘。"
+    },
+    {
+      "index": 39,
+      "filename": "一键模特展示产品.json",
+      "path": "workflows_api/一键模特展示产品.json",
+      "category": "product_commerce",
+      "description_zh": "云端 Flux Kontext Pro 版本的模特展示产品 workflow，需要 Comfy 登录/授权。"
+    },
+    {
+      "index": 40,
+      "filename": "一键模特展示产品_LOCAL_FLUX_KONTEXT_DEV.json",
+      "path": "workflows_api/一键模特展示产品_LOCAL_FLUX_KONTEXT_DEV.json",
+      "category": "product_commerce",
+      "description_zh": "本地 FLUX.1 Kontext Dev 版本的模特展示产品 workflow，无需云端 Pro 节点。"
+    },
+    {
+      "index": 41,
+      "filename": "一键生成红蓝白底证件照comfyui.json",
+      "path": "workflows_api/一键生成红蓝白底证件照comfyui.json",
+      "category": "general",
+      "description_zh": "证件照抠图、换红/蓝/白底和排版。"
+    },
+    {
+      "index": 42,
+      "filename": "一键用插画生成COSER老婆.json",
+      "path": "workflows_api/一键用插画生成COSER老婆.json",
+      "category": "general",
+      "description_zh": "通过 Gemini 将插画参考转成写实 coser 风照片。"
+    },
+    {
+      "index": 43,
+      "filename": "万相2.2文生图-图生图-fp8量化版-Magic-Wan-Image.json",
+      "path": "workflows_api/万相2.2文生图-图生图-fp8量化版-Magic-Wan-Image.json",
+      "category": "video",
+      "description_zh": "Wan 2.2 fp8 文生图/图生图静态图生成。"
+    },
+    {
+      "index": 44,
+      "filename": "万相MotionLoRA - 镜头推进.json",
+      "path": "workflows_api/万相MotionLoRA - 镜头推进.json",
+      "category": "general",
+      "description_zh": "Wan MotionLoRA 镜头推进动画。"
+    },
+    {
+      "index": 45,
+      "filename": "产品修图-布料去褶皱.json",
+      "path": "workflows_api/产品修图-布料去褶皱.json",
+      "category": "product_commerce",
+      "description_zh": "产品或服装布料去褶皱。"
+    },
+    {
+      "index": 46,
+      "filename": "人像溶图打光 _ 人物海报合成_人像打光_人物背景融合.json",
+      "path": "workflows_api/人像溶图打光 _ 人物海报合成_人像打光_人物背景融合.json",
+      "category": "product_commerce",
+      "description_zh": "人像海报合成、背景融合和人物打光。"
+    },
+    {
+      "index": 47,
+      "filename": "人物一键生成多姿势图.json",
+      "path": "workflows_api/人物一键生成多姿势图.json",
+      "category": "portrait_character",
+      "description_zh": "为人物一键生成多姿势图。"
+    },
+    {
+      "index": 48,
+      "filename": "人物背景完美融合.json",
+      "path": "workflows_api/人物背景完美融合.json",
+      "category": "product_commerce",
+      "description_zh": "ICLight 人物与背景光照融合。"
+    },
+    {
+      "index": 49,
+      "filename": "商业级高清放大工作流.json",
+      "path": "workflows_api/商业级高清放大工作流.json",
+      "category": "upscale_restore",
+      "description_zh": "商业级高清放大，带自动描述和分块处理。"
+    },
+    {
+      "index": 50,
+      "filename": "固定人像换指定动作【万物迁移】.json",
+      "path": "workflows_api/固定人像换指定动作【万物迁移】.json",
+      "category": "portrait_character",
+      "description_zh": "固定人像按参考动作换指定姿势。"
+    },
+    {
+      "index": 51,
+      "filename": "图像细节增加 模糊图片拯救 高清修复放大 .json",
+      "path": "workflows_api/图像细节增加 模糊图片拯救 高清修复放大 .json",
+      "category": "upscale_restore",
+      "description_zh": "模糊图拯救、细节增加、高清修复放大。"
+    },
+    {
+      "index": 52,
+      "filename": "多图融合-1.json",
+      "path": "workflows_api/多图融合-1.json",
+      "category": "image_editing",
+      "description_zh": "Qwen 双图融合。"
+    },
+    {
+      "index": 53,
+      "filename": "工业产品精修：机械零件设备-图片修复-高清放大-材质优化-工作流.json",
+      "path": "workflows_api/工业产品精修：机械零件设备-图片修复-高清放大-材质优化-工作流.json",
+      "category": "upscale_restore",
+      "description_zh": "工业产品/机械零件/设备图修复、放大和材质优化。"
+    },
+    {
+      "index": 54,
+      "filename": "最强高清放大还原.json",
+      "path": "workflows_api/最强高清放大还原.json",
+      "category": "upscale_restore",
+      "description_zh": "SeedVR2 加 FLUX/Ultimate SD Upscale 的强力高清还原。"
+    },
+    {
+      "index": 55,
+      "filename": "最新！！图像一键放大.json",
+      "path": "workflows_api/最新！！图像一键放大.json",
+      "category": "upscale_restore",
+      "description_zh": "一键通用图像放大，带像素和降噪说明。"
+    },
+    {
+      "index": 56,
+      "filename": "模特一键换衣-电商.json",
+      "path": "workflows_api/模特一键换衣-电商.json",
+      "category": "product_commerce",
+      "description_zh": "电商模特按服装参考一键换衣。"
+    },
+    {
+      "index": 57,
+      "filename": "模特姿势随机变化超强一致性.json",
+      "path": "workflows_api/模特姿势随机变化超强一致性.json",
+      "category": "portrait_character",
+      "description_zh": "模特随机姿势变化，强调一致性。"
+    },
+    {
+      "index": 58,
+      "filename": "浑厚的书法字模版.json",
+      "path": "workflows_api/浑厚的书法字模版.json",
+      "category": "general",
+      "description_zh": "Qwen Image 厚重中文书法字模板。"
+    },
+    {
+      "index": 59,
+      "filename": "溶图迁移-穿搭.json",
+      "path": "workflows_api/溶图迁移-穿搭.json",
+      "category": "image_editing",
+      "description_zh": "穿搭迁移/服装融合。"
+    },
+    {
+      "index": 60,
+      "filename": "精准表情控制.json",
+      "path": "workflows_api/精准表情控制.json",
+      "category": "portrait_character",
+      "description_zh": "精准控制人物表情。"
+    },
+    {
+      "index": 61,
+      "filename": "线稿制作.json",
+      "path": "workflows_api/线稿制作.json",
+      "category": "general",
+      "description_zh": "产品或图片转干净线稿。"
+    },
+    {
+      "index": 62,
+      "filename": "自适应纠正透视溶图.json",
+      "path": "workflows_api/自适应纠正透视溶图.json",
+      "category": "image_editing",
+      "description_zh": "自适应透视纠正和图像融合。"
+    },
+    {
+      "index": 63,
+      "filename": "视频动作迁移WAN2.1-VACE-14B.json",
+      "path": "workflows_api/视频动作迁移WAN2.1-VACE-14B.json",
+      "category": "video",
+      "description_zh": "Wan 2.1 VACE 视频动作/运动迁移。"
+    },
+    {
+      "index": 64,
+      "filename": "视频重绘【换衣+换人】.json",
+      "path": "workflows_api/视频重绘【换衣+换人】.json",
+      "category": "video",
+      "description_zh": "高级视频局部重绘，可用于换衣和换人。"
+    },
+    {
+      "index": 65,
+      "filename": "高清放大_SeedVR2+TTP分块_.json",
+      "path": "workflows_api/高清放大_SeedVR2+TTP分块_.json",
+      "category": "upscale_restore",
+      "description_zh": "SeedVR2 加 TTP 分块高清放大。"
+    },
+    {
+      "index": 66,
+      "filename": "高清放大合集-4合1-写实人像-产品图-素材图-修复放大工作流.json",
+      "path": "workflows_api/高清放大合集-4合1-写实人像-产品图-素材图-修复放大工作流.json",
+      "category": "upscale_restore",
+      "description_zh": "四合一高清放大工具，覆盖写实人像、产品图、素材图和修复放大。"
+    },
+    {
+      "index": 67,
+      "filename": "高级渲染一键精修图片.json",
+      "path": "workflows_api/高级渲染一键精修图片.json",
+      "category": "product_commerce",
+      "description_zh": "一键高级渲染和商业精修。"
+    }
+  ]
+}

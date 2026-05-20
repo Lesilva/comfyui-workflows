@@ -1,0 +1,29 @@
+{
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "6": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "1": {
+    "class_type": "HYPIRAdvancedRestoration",
+    "inputs": {}
+  },
+  "4": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  }
+}

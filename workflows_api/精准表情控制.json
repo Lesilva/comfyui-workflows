@@ -1,0 +1,36 @@
+{
+  "15": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "33": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_60"
+    }
+  },
+  "14": {
+    "class_type": "ExpressionEditor",
+    "inputs": {}
+  },
+  "34": {
+    "class_type": "CR Simple Image Compare",
+    "inputs": {}
+  },
+  "35": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "34",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_60"
+    }
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "52": {
+    "class_type": "InFluxModelSamplingPred",
+    "inputs": {}
+  },
+  "55": {
+    "class_type": "OutFluxModelSamplingPred",
+    "inputs": {}
+  },
+  "46": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "52",
+        0
+      ],
+      "conditioning": [
+        "60",
+        0
+      ]
+    }
+  },
+  "108": {
+    "class_type": "FluxForwardODESampler",
+    "inputs": {}
+  },
+  "60": {
+    "class_type": "FluxDeGuidance",
+    "inputs": {}
+  },
+  "38": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "154",
+        0
+      ]
+    }
+  },
+  "154": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "152": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "155": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "222": {
+    "class_type": "Anything Everywhere",
+    "inputs": {}
+  },
+  "62": {
+    "class_type": "FluxDeGuidance",
+    "inputs": {}
+  },
+  "51": {
+    "class_type": "FlipSigmas",
+    "inputs": {
+      "sigmas": [
+        "49",
+        0
+      ]
+    }
+  },
+  "50": {
+    "class_type": "DisableNoise",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "55",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 30,
+      "denoise": 1
+    }
+  },
+  "41": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "184",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "169",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "185": {
+    "class_type": "Get Image Size",
+    "inputs": {}
+  },
+  "170": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "169": {
+    "class_type": "Joy_caption_two",
+    "inputs": {}
+  },
+  "22": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "55",
+        0
+      ],
+      "conditioning": [
+        "62",
+        0
+      ]
+    }
+  },
+  "184": {
+    "class_type": "ConstrainImage|pysssss",
+    "inputs": {}
+  },
+  "13": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "247",
+        0
+      ],
+      "guider": [
+        "22",
+        0
+      ],
+      "sampler": [
+        "109",
+        0
+      ],
+      "sigmas": [
+        "17",
+        0
+      ],
+      "latent_image": [
+        "45",
+        0
+      ]
+    }
+  },
+  "247": {
+    "class_type": "DisableNoise",
+    "inputs": {}
+  },
+  "49": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "152",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 30,
+      "denoise": 1
+    }
+  },
+  "45": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "50",
+        0
+      ],
+      "guider": [
+        "46",
+        0
+      ],
+      "sampler": [
+        "108",
+        0
+      ],
+      "sigmas": [
+        "51",
+        0
+      ],
+      "latent_image": [
+        "41",
+        0
+      ]
+    }
+  },
+  "178": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "249": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "273",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_53"
+    }
+  },
+  "109": {
+    "class_type": "FluxReverseODESampler",
+    "inputs": {}
+  },
+  "180": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "152",
+        0
+      ],
+      "clip": [
+        "154",
+        0
+      ],
+      "lora_name": "工业产品精修：金属零件-五金工具-机械设备-注塑件-工业设计-材质优化_V1",
+      "strength_model": 0.8,
+      "strength_clip": 1
+    }
+  },
+  "253": {
+    "class_type": "CR Upscale Image",
+    "inputs": {}
+  },
+  "131": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ]
+    }
+  },
+  "273": {
+    "class_type": "CR Upscale Image",
+    "inputs": {}
+  }
+}

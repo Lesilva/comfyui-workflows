@@ -1,0 +1,19 @@
+# Local generated previews / outputs
+outputs/
+input/
+temp/
+*.part
+.DS_Store
+
+# Do not publish models or large local assets in this workflow library.
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.gguf
+*.onnx
+*.engine
+*.mp4
+*.mov
+*.avi
+*.mkv

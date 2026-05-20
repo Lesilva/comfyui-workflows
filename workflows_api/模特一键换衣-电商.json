@@ -1,0 +1,86 @@
+{
+  "16": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "15": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "12",
+        0
+      ],
+      "image2": [
+        "16",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "10": {
+    "class_type": "GeminiImageNode",
+    "inputs": {
+      "prompt": [
+        "11",
+        0
+      ],
+      "model": "",
+      "seed": "gemini-2.5-flash-image-preview",
+      "images": [
+        "21",
+        0
+      ],
+      "files": "replace_with_uploaded_file_01",
+      "aspect_ratio": "randomize"
+    }
+  },
+  "21": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "15",
+        0
+      ],
+      "image2": [
+        "17",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_03.png"
+    }
+  },
+  "24": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_56"
+    }
+  },
+  "11": {
+    "class_type": "JjkText",
+    "inputs": {}
+  },
+  "23": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "21",
+        0
+      ]
+    }
+  }
+}

@@ -1,0 +1,994 @@
+{
+  "369": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "370": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "347": {
+    "class_type": "WD14Tagger|pysssss",
+    "inputs": {}
+  },
+  "348": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "366": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "363": {
+    "class_type": "JanusImageUnderstanding",
+    "inputs": {}
+  },
+  "364": {
+    "class_type": "JanusModelLoader",
+    "inputs": {}
+  },
+  "365": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "354": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "370",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "359": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "369",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "368": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "365",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "356": {
+    "class_type": "Florence2ModelLoader",
+    "inputs": {}
+  },
+  "358": {
+    "class_type": "Florence2Run",
+    "inputs": {}
+  },
+  "355": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_03.png"
+    }
+  },
+  "280": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "281": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "277": {
+    "class_type": "SAMLoader",
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "AUTO"
+    }
+  },
+  "290": {
+    "class_type": "SAMLoader",
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "AUTO"
+    }
+  },
+  "289": {
+    "class_type": "UltralyticsDetectorProvider",
+    "inputs": {}
+  },
+  "293": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "294": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "291": {
+    "class_type": "UltralyticsDetectorProvider",
+    "inputs": {}
+  },
+  "278": {
+    "class_type": "UltralyticsDetectorProvider",
+    "inputs": {}
+  },
+  "276": {
+    "class_type": "UltralyticsDetectorProvider",
+    "inputs": {}
+  },
+  "341": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "538",
+        0
+      ],
+      "seed": 728320256581814,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 6,
+      "scheduler": "euler",
+      "positive": [
+        "547",
+        0
+      ],
+      "negative": [
+        "547",
+        1
+      ],
+      "latent_image": [
+        "340",
+        0
+      ],
+      "denoise": "normal"
+    }
+  },
+  "339": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "434",
+        0
+      ],
+      "vae": [
+        "241",
+        0
+      ]
+    }
+  },
+  "342": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "341",
+        0
+      ],
+      "vae": [
+        "241",
+        0
+      ]
+    }
+  },
+  "398": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "399",
+        0
+      ],
+      "image": [
+        "184",
+        0
+      ]
+    }
+  },
+  "184": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "411",
+        0
+      ],
+      "vae": [
+        "241",
+        0
+      ]
+    }
+  },
+  "382": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(artist:csyday:0.8),(artist:nardack:1),(artist:ZED:1.1),(artist:gsusart:1.1),(artist:da_mao_banlangen:1.1),(artist:kedama_milk:0.9),(artist:ask(askzy):1),(artist:wasabi_(sekai):0.7),(artist:mokufuu:1.2),(artist:wasabi_(sekai):1),(artist:k00s:0.6),(artist:daizu_(melon-lemon):0.9),",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "376": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(ningen mame:0.65),(tianliang duohe fangdongye:0.9),ask \\(askzy\\),(chen_bin:0.748),(void 0:1.1),(nixeu:0.63),(sy4:1.3),(mignon:0.677)",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "374": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "8k,best quality,masterpiece,(ultra-detailed),(high detailed skin),((artist:reoen),(artist:fuzichoco),(artist:atdan),(artist:torino_aqua),year 2024:0.8),[artist:wlop],[artist:ningen_mame],artist:ciloranko,[[artist:rhasta]],artist:tidsean,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "407": {
+    "class_type": "easy bookmark",
+    "inputs": {}
+  },
+  "373": {
+    "class_type": "easy conditioningIndexSwitch",
+    "inputs": {}
+  },
+  "411": {
+    "class_type": "KSampler //Inspire",
+    "inputs": {}
+  },
+  "404": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "405",
+        0
+      ],
+      "lora_name": "ill-米山舞 Yoneyama Mai_v1-20",
+      "strength_model": 0.5000000000000001
+    }
+  },
+  "375": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(wlop:0.92),Torino aqua,(tomozero:0.92),masterpiece,best quality,absurdres,newest,very aesthetic,amazing quality,sensitive,ultra detailed,best anatomy,HDR,8K,high detail RAW color art,Dynamic Angle,Sexy posture,very aesthetic,absurdres,ultra-high resolution,32K UHD,sharp focus,unconventional supreme masterpiece,masterful details,with a high-end texture,(Visual impact:1.2),dynamic and visually striking appearance,offcial art,colorful,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "383": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(artist:quasarcake:0.8),extreme aesthetic,(wlop:0.6),(honjou raita,lack,rella,wanke:0.5),masterpiece,best quality,good quality,newest,year 2024,year 2023,very aesthetic,absurdres,Visual impact,A shot with tension,ultra-high resolution,32K UHD,sharp focus,best-quality,masterpiece,Emotionalization,unconventional supreme masterpiece,masterful details,temperate atmosphere,with a high-end texture,in the style of fashion photography,(Visual impact:1.2),Dynamic and visual impact,offcial art,colorful,splash of color,movie perspective,masterpiece,best quality,amazing quality,very aesthetic,absurdres,best quality,newest,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "381": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(artist:betabeet:1.2),artist:john_kafka,artist:nixeu,artist:quasarcake,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "384": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "[[artist:torino_aqua]],[[[artist:ke-ta]]],[[artist:wlop]],[[artist:shexyo]],[[artist:kuzuvine]],[[artist:as109]],[[artist:ciloranko]],[[artist:campagne_9]],",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "385": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "masterpiece, best quality, newest, absurdres, highres, safe,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "386": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(binggong asylum:0.8227),(onineko:0.907)",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "409": {
+    "class_type": "easy bookmark",
+    "inputs": {}
+  },
+  "457": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "401",
+        0
+      ],
+      "lora_name": "xl-ill-pvc-figure-手办_v1-20",
+      "strength_model": 0.5000000000000001
+    }
+  },
+  "279": {
+    "class_type": "FaceDetailer",
+    "inputs": {
+      "image": [
+        "342",
+        0
+      ],
+      "model": [
+        "538",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ],
+      "vae": [
+        "241",
+        0
+      ],
+      "guide_size": 768,
+      "guide_size_for": true,
+      "max_size": 1280,
+      "seed": 169419244982586,
+      "steps": "randomize",
+      "cfg": 25,
+      "sampler_name": 4.5,
+      "scheduler": "euler",
+      "positive": [
+        "280",
+        0
+      ],
+      "negative": [
+        "281",
+        0
+      ],
+      "denoise": "normal",
+      "feather": 0.20000000000000004,
+      "noise_mask": 5,
+      "force_inpaint": true,
+      "bbox_threshold": true,
+      "bbox_dilation": 0.5,
+      "bbox_crop_factor": 10,
+      "sam_detection_hint": 3,
+      "sam_dilation": "center-1",
+      "sam_threshold": 0,
+      "sam_bbox_expansion": 0.93,
+      "sam_mask_hint_threshold": 0,
+      "sam_mask_hint_use_negative": 0.7,
+      "drop_size": "False",
+      "bbox_detector": [
+        "276",
+        0
+      ],
+      "wildcard": 10,
+      "cycle": "",
+      "sam_model_opt": [
+        "277",
+        0
+      ],
+      "segm_detector_opt": [
+        "278",
+        1
+      ],
+      "detailer_hook": 1,
+      "inpaint_model": false,
+      "noise_mask_feather": 21
+    }
+  },
+  "292": {
+    "class_type": "FaceDetailer",
+    "inputs": {
+      "image": [
+        "279",
+        0
+      ],
+      "model": [
+        "538",
+        0
+      ],
+      "clip": [
+        "180",
+        1
+      ],
+      "vae": [
+        "241",
+        0
+      ],
+      "guide_size": 768,
+      "guide_size_for": true,
+      "max_size": 1280,
+      "seed": 357479293443582,
+      "steps": "randomize",
+      "cfg": 25,
+      "sampler_name": 4.5,
+      "scheduler": "euler",
+      "positive": [
+        "293",
+        0
+      ],
+      "negative": [
+        "294",
+        0
+      ],
+      "denoise": "normal",
+      "feather": 0.4,
+      "noise_mask": 5,
+      "force_inpaint": true,
+      "bbox_threshold": true,
+      "bbox_dilation": 0.5,
+      "bbox_crop_factor": 10,
+      "sam_detection_hint": 3,
+      "sam_dilation": "center-1",
+      "sam_threshold": 0,
+      "sam_bbox_expansion": 0.93,
+      "sam_mask_hint_threshold": 0,
+      "sam_mask_hint_use_negative": 0.7,
+      "drop_size": "False",
+      "bbox_detector": [
+        "289",
+        0
+      ],
+      "wildcard": 10,
+      "cycle": "",
+      "sam_model_opt": [
+        "290",
+        0
+      ],
+      "segm_detector_opt": [
+        "291",
+        1
+      ],
+      "detailer_hook": 1,
+      "inpaint_model": false,
+      "noise_mask_feather": 21
+    }
+  },
+  "526": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "water mark",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "528": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "best quality,8K",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "439": {
+    "class_type": "ColorMatch",
+    "inputs": {}
+  },
+  "520": {
+    "class_type": "SUPIR_model_loader_v2",
+    "inputs": {}
+  },
+  "511": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "water mark",
+      "clip": [
+        "516",
+        1
+      ]
+    }
+  },
+  "518": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "best quality,8K",
+      "clip": [
+        "516",
+        1
+      ]
+    }
+  },
+  "507": {
+    "class_type": "PrimitiveNode",
+    "inputs": {}
+  },
+  "515": {
+    "class_type": "SUPIR_sample",
+    "inputs": {}
+  },
+  "509": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 512
+    }
+  },
+  "508": {
+    "class_type": "SUPIR_decode",
+    "inputs": {}
+  },
+  "517": {
+    "class_type": "ColorMatch",
+    "inputs": {}
+  },
+  "513": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 3840
+    }
+  },
+  "527": {
+    "class_type": "UltimateSDUpscale",
+    "inputs": {}
+  },
+  "535": {
+    "class_type": "easy bookmark",
+    "inputs": {}
+  },
+  "519": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "516": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "juggernautXL_v9_V9 + RDPhoto 2"
+    }
+  },
+  "525": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "R-ESRGAN_4x+ Anime6B"
+    }
+  },
+  "117": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "184",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_06"
+    }
+  },
+  "443": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "439",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_06"
+    }
+  },
+  "529": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "527",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_06"
+    }
+  },
+  "314": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "408": {
+    "class_type": "easy bookmark",
+    "inputs": {}
+  },
+  "340": {
+    "class_type": "RepeatLatentBatch",
+    "inputs": {
+      "samples": [
+        "339",
+        0
+      ],
+      "amount": 1
+    }
+  },
+  "459": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "457",
+        0
+      ],
+      "lora_name": "illustrious_Nai3_v2-18",
+      "strength_model": 0.5000000000000001
+    }
+  },
+  "399": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "R-ESRGAN_4x+ Anime6B"
+    }
+  },
+  "434": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "423": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 2560
+    }
+  },
+  "537": {
+    "class_type": "easy bookmark",
+    "inputs": {}
+  },
+  "521": {
+    "class_type": "SUPIR_first_stage",
+    "inputs": {}
+  },
+  "504": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 1024
+    }
+  },
+  "522": {
+    "class_type": "SUPIR_conditioner",
+    "inputs": {}
+  },
+  "505": {
+    "class_type": "SUPIR_encode",
+    "inputs": {}
+  },
+  "180": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "illustrious Anime model_v5-09光影"
+    }
+  },
+  "523": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "517",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_06"
+    }
+  },
+  "405": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "103",
+        0
+      ],
+      "lora_name": "illustrious_平涂草绘_v2-28",
+      "strength_model": 0.5000000000000001
+    }
+  },
+  "460": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "459",
+        0
+      ],
+      "lora_name": "xl-ill-细节强化_v1-8",
+      "strength_model": 0.5000000000000001
+    }
+  },
+  "186": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "text,watermark,white text,NSFW,worst quality,low quality,very displeasing,lowres,distorted,unclear eyes,deformed,missing arms,extra legs,bad proportions,extra limbs,more than 2 nipples,extra fingers,age spot,strange fingers,bad hand,anatomically incorrect hands,badly drawn hands and fingers,interlocked fingers,fused fingers,extra fingers,missing fingers,bad anatomy,fewer fingers,bad body,disfigured,skin spots,skin blemishes,acnes,watermark,extra digit,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "542": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "544",
+        0
+      ]
+    }
+  },
+  "544": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "548": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "550",
+        0
+      ]
+    }
+  },
+  "550": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "546": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "545",
+        0
+      ]
+    }
+  },
+  "540": {
+    "class_type": "easy conditioningIndexSwitch",
+    "inputs": {}
+  },
+  "371": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "373",
+        0
+      ],
+      "conditioning_2": [
+        "540",
+        0
+      ]
+    }
+  },
+  "241": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "sd_xl_vae_1.0"
+    }
+  },
+  "551": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "553",
+        0
+      ],
+      "negative": [
+        "553",
+        1
+      ],
+      "control_net": [
+        "549",
+        0
+      ],
+      "image": [
+        "550",
+        0
+      ],
+      "strength": 0.4000000000000001,
+      "start_percent": 0,
+      "end_percent": 0.4000000000000001,
+      "vae": [
+        "241",
+        0
+      ]
+    }
+  },
+  "547": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "551",
+        0
+      ],
+      "negative": [
+        "551",
+        1
+      ],
+      "control_net": [
+        "543",
+        0
+      ],
+      "image": [
+        "544",
+        0
+      ],
+      "strength": 0.8,
+      "start_percent": 0,
+      "end_percent": 0.5000000000000001,
+      "vae": [
+        "241",
+        0
+      ]
+    }
+  },
+  "549": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "xinsir_controlnet_depth_sdxl_1.0"
+    }
+  },
+  "543": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "xinsir_controlnet-openpose-sdxl-1.0"
+    }
+  },
+  "545": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "541": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "mistoLine_softedge_sdxl_fp16"
+    }
+  },
+  "372": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  },
+  "552": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_04.png"
+    }
+  },
+  "557": {
+    "class_type": "easy imageSize",
+    "inputs": {}
+  },
+  "556": {
+    "class_type": "easy imageScaleDownToSize",
+    "inputs": {}
+  },
+  "178": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "557",
+        0
+      ],
+      "height": [
+        "557",
+        1
+      ],
+      "batch_size": 864
+    }
+  },
+  "538": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "460",
+        0
+      ],
+      "lora_name": "xl-ill-写实风格_v1-40",
+      "strength_model": 0.5
+    }
+  },
+  "103": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "180",
+        0
+      ],
+      "lora_name": "xl-ill-【崩坏3】爱莉希雅-爱神使者_v1-10",
+      "strength_model": 0.8
+    }
+  },
+  "553": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "371",
+        0
+      ],
+      "negative": [
+        "186",
+        0
+      ],
+      "control_net": [
+        "541",
+        0
+      ],
+      "image": [
+        "545",
+        0
+      ],
+      "strength": 0.8000000000000002,
+      "start_percent": 0,
+      "end_percent": 0.5,
+      "vae": [
+        "241",
+        0
+      ]
+    }
+  },
+  "401": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "404",
+        0
+      ],
+      "lora_name": "A40-崩坏3立绘风格_v1-20",
+      "strength_model": 0.5000000000000001
+    }
+  },
+  "81": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "masterpiece,best quality,8k,ultra-detailed,\nelysia \\(messenger of love) (honkai impact\\),honkai \\(series\\),1girl,solo,pink hair,purple eyes,white highlights in pupil,hair ornament,white headwear(beret),smile,\nbreasts,Elysia's iconic white frilled off-shoulder top (lace trim, pastel pink accents),white gloves,\nelegant expression,\nbright soft lighting,dreamy atmosphere,\nanime style,vivid colors,sharp focus,detailed shading,heart,heart hands,upper body,looking at viewer,\nmasterpiece,best quality,8k,ultra-detailed,absurdres,sharp focus,vibrant colors,anime style,soft shading,2024 newest aesthetic,\npastel pink sky (gradient from light pink to baby pink, with fluffy white cloud clusters),floating pink cherry blossom petals (slowly falling, dense but not cluttered),pink bubble clusters (some with glitter, floating around),\npink grassland (with scattered white clover and small pink daisies),small pink stream (clear water reflecting sky color, with lily pads floating on surface),\nsoft warm sunlight (filtering through cherry blossom trees, casting dappled pink light spots),gentle breeze (making petals and grass sway slightly),\nethereal pink glow (lingering around clouds and petals),sweet and cozy atmosphere,dreamy mood,",
+      "clip": [
+        "180",
+        1
+      ]
+    }
+  }
+}

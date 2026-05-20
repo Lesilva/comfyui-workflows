@@ -1,0 +1,183 @@
+{
+  "65": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "25": {
+    "class_type": "Joy_caption_two",
+    "inputs": {}
+  },
+  "12": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "26": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "27": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "11": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "13": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "21": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "65",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    }
+  },
+  "18": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 601406566347058
+    }
+  },
+  "15": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "10": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "27",
+        0
+      ],
+      "clip": [
+        "12",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "84",
+        0
+      ],
+      "conditioning": [
+        "10",
+        0
+      ]
+    }
+  },
+  "77": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "19",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_05"
+    }
+  },
+  "83": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "13",
+        0
+      ],
+      "lora_name": "None",
+      "strength_model": 1
+    }
+  },
+  "84": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "83",
+        0
+      ],
+      "lora_name": "F.1--细节质感提升--F.1 DETAILER_V1.0",
+      "strength_model": 0.35
+    }
+  },
+  "14": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "18",
+        0
+      ],
+      "guider": [
+        "17",
+        0
+      ],
+      "sampler": [
+        "15",
+        0
+      ],
+      "sigmas": [
+        "16",
+        0
+      ],
+      "latent_image": [
+        "21",
+        0
+      ]
+    }
+  },
+  "22": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "31": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "13",
+        0
+      ],
+      "scheduler": "beta",
+      "steps": 30,
+      "denoise": 0.45
+    }
+  }
+}

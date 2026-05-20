@@ -1,0 +1,503 @@
+{
+  "231": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "232": {
+    "class_type": "VHS_VideoInfo",
+    "inputs": {
+      "video_info": [
+        "236",
+        3
+      ]
+    }
+  },
+  "233": {
+    "class_type": "WanVideoUniAnimateDWPoseDetector",
+    "inputs": {
+      "pose_images": [
+        "231",
+        0
+      ],
+      "score_threshold": 0.30000000000000004,
+      "stick_width": 4,
+      "draw_body": true,
+      "body_keypoint_size": 4,
+      "draw_feet": true,
+      "draw_hands": true,
+      "hand_keypoint_size": 4,
+      "colorspace": "RGB",
+      "handle_not_detected": "empty",
+      "draw_head": true,
+      "reference_pose_image": [
+        "234",
+        0
+      ]
+    }
+  },
+  "234": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "235": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "233",
+        0
+      ],
+      "frame_rate": [
+        "232",
+        5
+      ],
+      "loop_count": "frame_rate",
+      "filename_prefix": "shared_workflows/workflow_35",
+      "format": "filename_prefix",
+      "pingpong": "format",
+      "save_output": "pix_fmt",
+      "audio": "crf",
+      "meta_batch": "save_metadata",
+      "vae": "trim_to_audio"
+    }
+  },
+  "237": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "236": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "example_video_01.mp4",
+      "force_rate": "force_rate",
+      "custom_width": "custom_width",
+      "custom_height": "custom_height",
+      "frame_load_cap": "frame_load_cap",
+      "skip_first_frames": "skip_first_frames",
+      "select_every_nth": "select_every_nth",
+      "meta_batch": "format",
+      "vae": "choose video to upload",
+      "format": "videopreview"
+    }
+  },
+  "238": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "239": {
+    "class_type": "WanVideoLoraSelect",
+    "inputs": {
+      "lora": "Wan2.1_I2V_14B_FusionX_LoRA_I2V_14B",
+      "strength": 1,
+      "prev_lora": false
+    }
+  },
+  "240": {
+    "class_type": "WanVideoVACEModelSelect",
+    "inputs": {
+      "vace_model": "Wan2_1-VACE_module_14B_fp8_e4m3fn.safetensors"
+    }
+  },
+  "241": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 0
+    }
+  },
+  "242": {
+    "class_type": "WanVideoSLG",
+    "inputs": {
+      "blocks": "9",
+      "start_percent": 0.2,
+      "end_percent": 0.7
+    }
+  },
+  "243": {
+    "class_type": "WanVideoExperimentalArgs",
+    "inputs": {
+      "video_attention_split_steps": "",
+      "cfg_zero_star": true,
+      "use_zero_init": false,
+      "zero_star_steps": 0,
+      "use_fresca": false,
+      "fresca_scale_low": 1,
+      "fresca_scale_high": 1.25,
+      "fresca_freq_cutoff": 20
+    }
+  },
+  "244": {
+    "class_type": "CM_NumberBinaryOperation",
+    "inputs": {}
+  },
+  "245": {
+    "class_type": "WanVideoTeaCache",
+    "inputs": {
+      "rel_l1_thresh": 0.15,
+      "start_step": 2,
+      "end_step": -1,
+      "cache_device": "offload_device",
+      "use_coefficients": true,
+      "mode": "e"
+    }
+  },
+  "246": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "247": {
+    "class_type": "easy convertAnything",
+    "inputs": {}
+  },
+  "248": {
+    "class_type": "easy convertAnything",
+    "inputs": {}
+  },
+  "249": {
+    "class_type": "easy clearCacheAll",
+    "inputs": {}
+  },
+  "250": {
+    "class_type": "Image Crop Face",
+    "inputs": {}
+  },
+  "251": {
+    "class_type": "LayerUtility: PhiPrompt",
+    "inputs": {}
+  },
+  "252": {
+    "class_type": "IntMathOperation",
+    "inputs": {}
+  },
+  "253": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 0
+    }
+  },
+  "255": {
+    "class_type": "WanVideoVAELoader",
+    "inputs": {
+      "model_name": "Wan2_1_VAE_bf16.safetensors",
+      "precision": "bf16"
+    }
+  },
+  "256": {
+    "class_type": "WanVideoBlockSwap",
+    "inputs": {
+      "blocks_to_swap": 20,
+      "offload_img_emb": false,
+      "offload_txt_emb": false,
+      "use_non_blocking": true,
+      "vace_blocks_to_swap": 0
+    }
+  },
+  "257": {
+    "class_type": "WanVideoTextEncode",
+    "inputs": {
+      "positive_prompt": [
+        "273",
+        0
+      ],
+      "negative_prompt": "",
+      "t5": [
+        "258",
+        0
+      ],
+      "force_offload": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "model_to_offload": true
+    }
+  },
+  "258": {
+    "class_type": "LoadWanVideoT5TextEncoder",
+    "inputs": {
+      "model_name": "umt5-xxl-enc-bf16.safetensors",
+      "precision": "bf16",
+      "load_device": "offload_device",
+      "quantization": "fp8_e4m3fn"
+    }
+  },
+  "259": {
+    "class_type": "WanVideoEnhanceAVideo",
+    "inputs": {
+      "weight": 2,
+      "start_percent": 0,
+      "end_percent": 1
+    }
+  },
+  "260": {
+    "class_type": "LayerUtility: ImageMaskScaleAs",
+    "inputs": {}
+  },
+  "261": {
+    "class_type": "DWPreprocessor",
+    "inputs": {}
+  },
+  "262": {
+    "class_type": "WanVideoVACEEncode",
+    "inputs": {
+      "vae": [
+        "255",
+        0
+      ],
+      "width": [
+        "272",
+        1
+      ],
+      "height": [
+        "272",
+        2
+      ],
+      "num_frames": [
+        "252",
+        0
+      ],
+      "strength": 832,
+      "vace_start_percent": 480,
+      "vace_end_percent": 81,
+      "input_frames": [
+        "275",
+        0
+      ],
+      "ref_images": [
+        "260",
+        0
+      ],
+      "input_masks": 1,
+      "prev_vace_embeds": 0,
+      "tiled_vae": 1
+    }
+  },
+  "263": {
+    "class_type": "Evaluate Strings",
+    "inputs": {}
+  },
+  "264": {
+    "class_type": "LayerUtility: PhiPrompt",
+    "inputs": {}
+  },
+  "265": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 16
+    }
+  },
+  "266": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 1
+    }
+  },
+  "267": {
+    "class_type": "WanVideoModelLoader",
+    "inputs": {
+      "model": "Wan2_1-T2V-14B_fp8_e4m3fn.safetensors",
+      "base_precision": "bf16",
+      "quantization": "fp8_e4m3fn",
+      "load_device": "offload_device",
+      "attention_mode": "sdpa"
+    }
+  },
+  "268": {
+    "class_type": "WanVideoDecode",
+    "inputs": {
+      "vae": [
+        "255",
+        0
+      ],
+      "samples": [
+        "270",
+        0
+      ],
+      "enable_vae_tiling": false,
+      "tile_x": 272,
+      "tile_y": 272,
+      "tile_stride_x": 144,
+      "tile_stride_y": 128,
+      "normalization": "default"
+    }
+  },
+  "269": {
+    "class_type": "RIFE VFI",
+    "inputs": {}
+  },
+  "270": {
+    "class_type": "WanVideoSampler",
+    "inputs": {
+      "model": [
+        "267",
+        0
+      ],
+      "image_embeds": [
+        "262",
+        0
+      ],
+      "steps": 9,
+      "cfg": 1,
+      "shift": 8,
+      "seed": 255895576558221,
+      "force_offload": "randomize",
+      "scheduler": false,
+      "riflex_freq_index": "dpm++",
+      "text_embeds": [
+        "257",
+        0
+      ],
+      "samples": 0,
+      "denoise_strength": 1,
+      "feta_args": [
+        "259",
+        0
+      ],
+      "context_options": false,
+      "cache_args": [
+        "245",
+        0
+      ],
+      "flowedit_args": "comfy"
+    }
+  },
+  "271": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 80
+    }
+  },
+  "272": {
+    "class_type": "ImageResizeKJv2",
+    "inputs": {}
+  },
+  "273": {
+    "class_type": "LibLibTranslate",
+    "inputs": {}
+  },
+  "274": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 1
+    }
+  },
+  "275": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "279": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 16
+    }
+  },
+  "280": {
+    "class_type": "easy ifElse",
+    "inputs": {}
+  },
+  "281": {
+    "class_type": "ReActorFaceSwap",
+    "inputs": {}
+  },
+  "282": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "281",
+        0
+      ],
+      "frame_rate": [
+        "279",
+        0
+      ],
+      "loop_count": "frame_rate",
+      "filename_prefix": "shared_workflows/workflow_35",
+      "format": "filename_prefix",
+      "pingpong": "format",
+      "save_output": "pix_fmt",
+      "audio": [
+        "278",
+        2
+      ],
+      "meta_batch": "crf",
+      "vae": "save_metadata"
+    }
+  },
+  "283": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "280",
+        0
+      ],
+      "frame_rate": [
+        "279",
+        0
+      ],
+      "loop_count": "frame_rate",
+      "filename_prefix": "shared_workflows/workflow_35",
+      "format": "filename_prefix",
+      "pingpong": "format",
+      "save_output": "pix_fmt",
+      "audio": [
+        "278",
+        2
+      ],
+      "meta_batch": "crf",
+      "vae": "save_metadata"
+    }
+  },
+  "284": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "268",
+        0
+      ],
+      "frame_rate": [
+        "279",
+        0
+      ],
+      "loop_count": "frame_rate",
+      "filename_prefix": "shared_workflows/workflow_35",
+      "format": "filename_prefix",
+      "pingpong": "format",
+      "save_output": "pix_fmt",
+      "audio": [
+        "278",
+        2
+      ],
+      "meta_batch": "crf",
+      "vae": "save_metadata"
+    }
+  },
+  "278": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "example_video_02.mp4",
+      "force_rate": [
+        "265",
+        0
+      ],
+      "custom_width": "force_rate",
+      "custom_height": "custom_width",
+      "frame_load_cap": [
+        "252",
+        0
+      ],
+      "skip_first_frames": [
+        "253",
+        0
+      ],
+      "select_every_nth": [
+        "266",
+        0
+      ],
+      "meta_batch": "custom_height",
+      "vae": "frame_load_cap",
+      "format": "skip_first_frames"
+    }
+  },
+  "277": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  }
+}

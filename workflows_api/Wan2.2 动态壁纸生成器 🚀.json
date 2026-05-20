@@ -1,0 +1,370 @@
+{
+  "120": {
+    "class_type": "Primitive integer [Crystools]",
+    "inputs": {}
+  },
+  "121": {
+    "class_type": "WanVideoModelLoader",
+    "inputs": {
+      "model": "wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+      "base_precision": "fp16",
+      "quantization": "fp8_e4m3fn_scaled",
+      "load_device": "offload_device",
+      "attention_mode": "sageattn",
+      "compile_args": [
+        "128",
+        0
+      ]
+    }
+  },
+  "123": {
+    "class_type": "WanVideoLoraSelect",
+    "inputs": {
+      "lora": "lightx2v_lightx2v_I2V",
+      "strength": 1,
+      "prev_lora": false,
+      "blocks": false
+    }
+  },
+  "124": {
+    "class_type": "WanVideoVAELoader",
+    "inputs": {
+      "model_name": "Wan2_1_VAE_bf16.safetensors",
+      "precision": "bf16"
+    }
+  },
+  "125": {
+    "class_type": "LoadWanVideoT5TextEncoder",
+    "inputs": {
+      "model_name": "umt5-xxl-enc-fp8_e4m3fn.safetensors",
+      "precision": "bf16",
+      "load_device": "offload_device",
+      "quantization": "fp8_e4m3fn"
+    }
+  },
+  "126": {
+    "class_type": "WanVideoBlockSwap",
+    "inputs": {
+      "blocks_to_swap": 20,
+      "offload_img_emb": false,
+      "offload_txt_emb": false,
+      "use_non_blocking": false,
+      "vace_blocks_to_swap": 1
+    }
+  },
+  "127": {
+    "class_type": "WanVideoLoraSelect",
+    "inputs": {
+      "lora": "lightx2v_lightx2v_I2V",
+      "strength": 1,
+      "prev_lora": false,
+      "blocks": false
+    }
+  },
+  "128": {
+    "class_type": "WanVideoTorchCompileSettings",
+    "inputs": {
+      "backend": "inductor",
+      "fullgraph": false,
+      "mode": "default",
+      "dynamic": false,
+      "dynamo_cache_size_limit": 64,
+      "compile_transformer_blocks_only": true,
+      "dynamo_recompile_limit": 128
+    }
+  },
+  "129": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "130": {
+    "class_type": "WanVideoTextEncode",
+    "inputs": {
+      "positive_prompt": [
+        "150",
+        0
+      ],
+      "negative_prompt": "",
+      "t5": [
+        "125",
+        0
+      ],
+      "force_offload": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "model_to_offload": true,
+      "use_disk_cache": false,
+      "device": "gpu"
+    }
+  },
+  "131": {
+    "class_type": "WanVideoSetBlockSwap",
+    "inputs": {
+      "model": [
+        "121",
+        0
+      ],
+      "block_swap_args": [
+        "126",
+        0
+      ]
+    }
+  },
+  "132": {
+    "class_type": "WanVideoSampler",
+    "inputs": {
+      "model": [
+        "137",
+        0
+      ],
+      "image_embeds": [
+        "133",
+        0
+      ],
+      "steps": [
+        "135",
+        0
+      ],
+      "cfg": [
+        "136",
+        0
+      ],
+      "shift": 6,
+      "seed": 1,
+      "force_offload": 8,
+      "scheduler": 729260338482020,
+      "riflex_freq_index": "randomize",
+      "text_embeds": [
+        "130",
+        0
+      ],
+      "samples": true,
+      "denoise_strength": "dpm++_sde",
+      "feta_args": 0,
+      "context_options": 1,
+      "cache_args": false,
+      "flowedit_args": "comfy",
+      "batched_cfg": 0,
+      "slg_args": 10
+    }
+  },
+  "133": {
+    "class_type": "WanVideoImageToVideoEncode",
+    "inputs": {
+      "width": [
+        "129",
+        3
+      ],
+      "height": [
+        "129",
+        4
+      ],
+      "num_frames": [
+        "138",
+        0
+      ],
+      "noise_aug_strength": 832,
+      "start_latent_strength": 480,
+      "end_latent_strength": 81,
+      "force_offload": 0,
+      "vae": [
+        "124",
+        0
+      ],
+      "clip_embeds": 1,
+      "start_image": [
+        "129",
+        0
+      ],
+      "end_image": 1,
+      "control_embeds": true,
+      "fun_or_fl2v_model": false,
+      "temporal_mask": false
+    }
+  },
+  "134": {
+    "class_type": "WanVideoSetBlockSwap",
+    "inputs": {
+      "model": [
+        "122",
+        0
+      ],
+      "block_swap_args": [
+        "126",
+        0
+      ]
+    }
+  },
+  "135": {
+    "class_type": "Primitive integer [Crystools]",
+    "inputs": {}
+  },
+  "136": {
+    "class_type": "CreateCFGScheduleFloatList",
+    "inputs": {
+      "steps": [
+        "135",
+        0
+      ],
+      "cfg_scale_start": 30,
+      "cfg_scale_end": 2,
+      "interpolation": 2,
+      "start_percent": "linear",
+      "end_percent": 0
+    }
+  },
+  "137": {
+    "class_type": "WanVideoSetLoRAs",
+    "inputs": {
+      "model": [
+        "131",
+        0
+      ],
+      "lora": [
+        "123",
+        0
+      ]
+    }
+  },
+  "138": {
+    "class_type": "MathExpression|pysssss",
+    "inputs": {}
+  },
+  "139": {
+    "class_type": "Primitive integer [Crystools]",
+    "inputs": {}
+  },
+  "140": {
+    "class_type": "WanVideoSetLoRAs",
+    "inputs": {
+      "model": [
+        "134",
+        0
+      ],
+      "lora": [
+        "127",
+        0
+      ]
+    }
+  },
+  "122": {
+    "class_type": "WanVideoModelLoader",
+    "inputs": {
+      "model": "wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+      "base_precision": "fp16",
+      "quantization": "fp8_e4m3fn_scaled",
+      "load_device": "offload_device",
+      "attention_mode": "sageattn",
+      "compile_args": [
+        "128",
+        0
+      ]
+    }
+  },
+  "142": {
+    "class_type": "WanVideoSampler",
+    "inputs": {
+      "model": [
+        "140",
+        0
+      ],
+      "image_embeds": [
+        "133",
+        0
+      ],
+      "steps": [
+        "135",
+        0
+      ],
+      "cfg": 6,
+      "shift": 1,
+      "seed": 8,
+      "force_offload": 829033510734803,
+      "scheduler": "randomize",
+      "riflex_freq_index": true,
+      "text_embeds": [
+        "130",
+        0
+      ],
+      "samples": [
+        "132",
+        0
+      ],
+      "denoise_strength": "dpm++_sde",
+      "feta_args": 0,
+      "context_options": 1,
+      "cache_args": false,
+      "flowedit_args": "comfy",
+      "batched_cfg": 10,
+      "slg_args": -1
+    }
+  },
+  "144": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 1024
+    }
+  },
+  "148": {
+    "class_type": "ImageListToImageBatch",
+    "inputs": {
+      "images": [
+        "147",
+        0
+      ]
+    }
+  },
+  "147": {
+    "class_type": "easy imageBatchToImageList",
+    "inputs": {}
+  },
+  "141": {
+    "class_type": "WanVideoDecode",
+    "inputs": {
+      "vae": [
+        "124",
+        0
+      ],
+      "samples": [
+        "142",
+        0
+      ],
+      "enable_vae_tiling": true,
+      "tile_x": 272,
+      "tile_y": 272,
+      "tile_stride_x": 144,
+      "tile_stride_y": 128,
+      "normalization": "default"
+    }
+  },
+  "151": {
+    "class_type": "LibLibVisionV2Qwen",
+    "inputs": {}
+  },
+  "152": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "148",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_23",
+      "format": "format",
+      "pingpong": "pix_fmt",
+      "save_output": "crf",
+      "audio": "save_metadata",
+      "meta_batch": "trim_to_audio",
+      "vae": "pingpong"
+    }
+  },
+  "150": {
+    "class_type": "LibLibGenerate",
+    "inputs": {}
+  },
+  "145": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  }
+}

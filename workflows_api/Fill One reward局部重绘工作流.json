@@ -1,0 +1,157 @@
+{
+  "14": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "19",
+        0
+      ],
+      "guidance": 30
+    }
+  },
+  "15": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ]
+    }
+  },
+  "22": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "24": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "13",
+        0
+      ],
+      "seed": 546049895021784,
+      "steps": "randomize",
+      "cfg": 10,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "21",
+        0
+      ],
+      "negative": [
+        "21",
+        1
+      ],
+      "latent_image": [
+        "21",
+        2
+      ],
+      "denoise": "beta"
+    }
+  },
+  "10": {
+    "class_type": "Mask Fill Holes",
+    "inputs": {}
+  },
+  "27": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux.1-fill-dev-OneReward_bf16",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "29": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "11": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "23": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "28": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "27",
+        0
+      ],
+      "lora_name": "FLUX.1八步出图Lora提速版_FLUX.1八步出图Lora",
+      "strength_model": 1
+    }
+  },
+  "13": {
+    "class_type": "DifferentialDiffusion",
+    "inputs": {
+      "model": [
+        "28",
+        0
+      ]
+    }
+  },
+  "21": {
+    "class_type": "InpaintModelConditioning",
+    "inputs": {
+      "positive": [
+        "14",
+        0
+      ],
+      "negative": [
+        "12",
+        0
+      ],
+      "vae": [
+        "11",
+        0
+      ],
+      "pixels": [
+        "22",
+        0
+      ],
+      "mask": [
+        "22",
+        1
+      ],
+      "noise_mask": false
+    }
+  },
+  "12": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "19",
+        0
+      ]
+    }
+  },
+  "25": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "19": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "The girl is wearing a yoga top and pants.",
+      "clip": [
+        "29",
+        0
+      ]
+    }
+  }
+}

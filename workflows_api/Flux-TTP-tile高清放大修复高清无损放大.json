@@ -1,0 +1,189 @@
+{
+  "1": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "6",
+        0
+      ],
+      "image": [
+        "25",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "JanusImageUnderstanding",
+    "inputs": {}
+  },
+  "8": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "9": {
+    "class_type": "Anything Everywhere3",
+    "inputs": {}
+  },
+  "10": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "8",
+        0
+      ],
+      "clip": [
+        "1",
+        0
+      ],
+      "lora_name": "Lora_4步出图_F.1_V1_pundit_V1",
+      "strength_model": 1,
+      "strength_clip": 1
+    }
+  },
+  "11": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "12": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "4",
+        0
+      ],
+      "clip": "high quality, detailed, photograph , hd, 8k , 4k , sharp, highly detailed，Delicate skin，"
+    }
+  },
+  "13": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": 586234951725073,
+      "seed": "randomize",
+      "steps": 4,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "positive": [
+        "20",
+        0
+      ],
+      "negative": [
+        "22",
+        0
+      ],
+      "latent_image": [
+        "21",
+        0
+      ],
+      "denoise": 0.10000000000000002
+    }
+  },
+  "14": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": 1024,
+      "tile_size": 64,
+      "overlap": 64,
+      "temporal_size": 8
+    }
+  },
+  "17": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "18": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "20": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "12",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "21": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "18",
+        0
+      ]
+    }
+  },
+  "22": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": ""
+    }
+  },
+  "23": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "7": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 8.000000000000002
+    }
+  },
+  "6": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4x_NMKD-Siax_200k.pth"
+    }
+  },
+  "25": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "24": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "23",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "5": {
+    "class_type": "JanusModelLoader",
+    "inputs": {}
+  },
+  "2": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  }
+}

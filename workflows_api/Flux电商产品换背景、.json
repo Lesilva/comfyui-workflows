@@ -1,0 +1,174 @@
+{
+  "214": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "208",
+        0
+      ],
+      "vae": [
+        "212",
+        0
+      ]
+    }
+  },
+  "206": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "207",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "208": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "223",
+        0
+      ]
+    }
+  },
+  "207": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "215",
+        0
+      ],
+      "latent": [
+        "214",
+        0
+      ]
+    }
+  },
+  "229": {
+    "class_type": "LibLibTranslate",
+    "inputs": {}
+  },
+  "209": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "230": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "215": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "229",
+        0
+      ],
+      "clip": [
+        "211",
+        0
+      ]
+    }
+  },
+  "211": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "216": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "215",
+        0
+      ]
+    }
+  },
+  "210": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "217": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "210",
+        0
+      ],
+      "seed": 433288404784145,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "206",
+        0
+      ],
+      "negative": [
+        "216",
+        0
+      ],
+      "latent_image": [
+        "214",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "212": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "220": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "217",
+        0
+      ],
+      "vae": [
+        "212",
+        0
+      ]
+    }
+  },
+  "223": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "221": {
+    "class_type": "PMRF",
+    "inputs": {}
+  },
+  "225": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "231": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "226": {
+    "class_type": "ImageConcatMulti",
+    "inputs": {}
+  },
+  "232": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "226",
+        0
+      ]
+    }
+  }
+}

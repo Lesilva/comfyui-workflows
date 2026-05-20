@@ -1,0 +1,357 @@
+{
+  "231": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "241",
+        0
+      ],
+      "latent": [
+        "227",
+        0
+      ]
+    }
+  },
+  "227": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "311",
+        0
+      ],
+      "vae": [
+        "229",
+        0
+      ]
+    }
+  },
+  "266": {
+    "class_type": "ImageListToImageBatch",
+    "inputs": {
+      "images": [
+        "280",
+        0
+      ]
+    }
+  },
+  "267": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "282",
+        0
+      ]
+    }
+  },
+  "268": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "269",
+        0
+      ],
+      "vae": [
+        "270",
+        0
+      ]
+    }
+  },
+  "269": {
+    "class_type": "ImpactImageBatchToImageList",
+    "inputs": {
+      "image": [
+        "279",
+        0
+      ]
+    }
+  },
+  "274": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "282",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "280": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "285",
+        0
+      ],
+      "vae": [
+        "270",
+        0
+      ],
+      "tile_size": 1536,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8
+    }
+  },
+  "282": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Smooth all uneven or twisted lines, remove visual noise and artifacts, and refine the line drawing to be clean, precise, and consistent. Ensure uniform stroke width, high clarity, and neatly aligned contours. The final result should be a polished, noise-free line drawing with accurate and professional structure.\n",
+      "clip": [
+        "275",
+        0
+      ]
+    }
+  },
+  "243": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "311",
+        0
+      ]
+    }
+  },
+  "228": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "239",
+        0
+      ],
+      "vae": [
+        "229",
+        0
+      ]
+    }
+  },
+  "284": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "226": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "241",
+        0
+      ]
+    }
+  },
+  "271": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "277",
+        0
+      ],
+      "image": [
+        "283",
+        0
+      ]
+    }
+  },
+  "272": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "271",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 4.000000000000001
+    }
+  },
+  "273": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "276": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "电商&工业大模型_用于电商产品主图和渲染图_1.0",
+      "weight_dtype": "default"
+    }
+  },
+  "285": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "276",
+        0
+      ],
+      "seed": 693141944399088,
+      "steps": "randomize",
+      "cfg": 6,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "274",
+        0
+      ],
+      "negative": [
+        "267",
+        0
+      ],
+      "latent_image": [
+        "268",
+        0
+      ],
+      "denoise": "kl_optimal"
+    }
+  },
+  "304": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "278": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "311": {
+    "class_type": "ImageScaleBy",
+    "inputs": {
+      "image": [
+        "304",
+        0
+      ],
+      "upscale_method": "nearest-exact",
+      "scale_by": 0.4000000000000001
+    }
+  },
+  "283": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "241": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Convert the product to a vector line drawing. Monochrome vector line drawing with uniform medium-weight black lines. No shading or shadows.",
+      "clip": [
+        "230",
+        0
+      ]
+    }
+  },
+  "233": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "234": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "228",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_61"
+    }
+  },
+  "281": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "284",
+        0
+      ]
+    }
+  },
+  "275": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "230": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "239": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "332",
+        0
+      ],
+      "seed": 987008269910896,
+      "steps": "randomize",
+      "cfg": 20,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "236",
+        0
+      ],
+      "negative": [
+        "226",
+        0
+      ],
+      "latent_image": [
+        "227",
+        0
+      ],
+      "denoise": "beta"
+    }
+  },
+  "236": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "231",
+        0
+      ],
+      "guidance": 4
+    }
+  },
+  "331": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "279": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "277": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "2xNomosUni_span_multijpg_ldl"
+    }
+  },
+  "229": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "270": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "332": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "331",
+        0
+      ],
+      "lora_name": "Kontext线稿_V1",
+      "strength_model": 0.8000000000000002
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "246": {
+    "class_type": "Joy_caption_two",
+    "inputs": {}
+  },
+  "249": {
+    "class_type": "CR Text",
+    "inputs": {}
+  },
+  "250": {
+    "class_type": "Text Concatenate (JPS)",
+    "inputs": {}
+  },
+  "34": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "134",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": [
+        "267",
+        0
+      ],
+      "resolution_steps": 8
+    }
+  },
+  "111": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "36": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "72": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "77",
+        0
+      ],
+      "conditioning": [
+        "73",
+        0
+      ]
+    }
+  },
+  "96": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "67",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "tile_size": 1024,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8
+    }
+  },
+  "163": {
+    "class_type": "easy imageBatchToImageList",
+    "inputs": {}
+  },
+  "129": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "163",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ]
+    }
+  },
+  "237": {
+    "class_type": "ImageListToImageBatch",
+    "inputs": {
+      "images": [
+        "96",
+        0
+      ]
+    }
+  },
+  "134": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "133",
+        0
+      ],
+      "image": [
+        "244",
+        0
+      ]
+    }
+  },
+  "247": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "133": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4x-UltraSharp"
+    }
+  },
+  "31": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "78": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "252": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "245": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "128": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "127",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_55"
+    }
+  },
+  "233": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "254": {
+    "class_type": "FloatConstant",
+    "inputs": {}
+  },
+  "267": {
+    "class_type": "FloatConstant",
+    "inputs": {}
+  },
+  "244": {
+    "class_type": "ImageResizeKJ",
+    "inputs": {}
+  },
+  "69": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "77",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 10,
+      "denoise": [
+        "254",
+        0
+      ]
+    }
+  },
+  "68": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "70": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 291948347703868
+    }
+  },
+  "42": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "250",
+        0
+      ],
+      "clip": [
+        "78",
+        0
+      ]
+    }
+  },
+  "77": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "73": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "42",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "67": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "70",
+        0
+      ],
+      "guider": [
+        "72",
+        0
+      ],
+      "sampler": [
+        "68",
+        0
+      ],
+      "sigmas": [
+        "69",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ]
+    }
+  },
+  "127": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "130": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "163",
+        0
+      ]
+    }
+  }
+}

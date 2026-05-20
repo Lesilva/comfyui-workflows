@@ -1,0 +1,191 @@
+{
+  "10": {
+    "class_type": "LayerUtility: NumberCalculatorV2",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "ImpactImageBatchToImageList",
+    "inputs": {
+      "image": [
+        "25",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "18",
+        0
+      ],
+      "latent": [
+        "11",
+        0
+      ]
+    }
+  },
+  "22": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "38",
+        0
+      ],
+      "vae": [
+        "37",
+        0
+      ]
+    }
+  },
+  "24": {
+    "class_type": "ImageListToBatch+",
+    "inputs": {}
+  },
+  "25": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "27": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "28": {
+    "class_type": "LayerUtility: NumberCalculatorV2",
+    "inputs": {}
+  },
+  "32": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "31": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "26",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_17"
+    }
+  },
+  "30": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "26": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "33": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "34": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "33",
+        0
+      ],
+      "lora_name": "KontextHiRes_Kontext_高分辨率细节优化_V1.0",
+      "strength_model": 0.1
+    }
+  },
+  "21": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "18",
+        0
+      ]
+    }
+  },
+  "11": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "17",
+        0
+      ],
+      "vae": [
+        "37",
+        0
+      ]
+    }
+  },
+  "38": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "35",
+        0
+      ],
+      "seed": 979044276554959,
+      "steps": "randomize",
+      "cfg": 25,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "20",
+        0
+      ],
+      "negative": [
+        "21",
+        0
+      ],
+      "latent_image": [
+        "11",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "39": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "37": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "35": {
+    "class_type": "TeaCache",
+    "inputs": {}
+  },
+  "18": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "high quality, detailed, ",
+      "clip": [
+        "36",
+        0
+      ]
+    }
+  },
+  "36": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp16",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "20": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "19",
+        0
+      ],
+      "guidance": 2.5
+    }
+  }
+}

@@ -1,0 +1,385 @@
+{
+  "10": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "11": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "12": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "110": {
+    "class_type": "Anything Everywhere",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "Flux.1-dev-Controlnet-Upscaler-JasperAI.safetensors"
+    }
+  },
+  "21": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "35",
+        3
+      ],
+      "height": [
+        "35",
+        4
+      ],
+      "batch_size": 512
+    }
+  },
+  "63": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "64",
+        0
+      ],
+      "guider": [
+        "65",
+        0
+      ],
+      "sampler": [
+        "134",
+        0
+      ],
+      "sigmas": [
+        "67",
+        0
+      ],
+      "latent_image": [
+        "139",
+        0
+      ]
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "131",
+        2
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    }
+  },
+  "131": {
+    "class_type": "Florence2Run",
+    "inputs": {}
+  },
+  "93": {
+    "class_type": "ImageScaleToTotalPixels",
+    "inputs": {
+      "image": [
+        "68",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "megapixels": 8
+    }
+  },
+  "64": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 1111008955507110
+    }
+  },
+  "90": {
+    "class_type": "ImageListToImageBatch",
+    "inputs": {
+      "images": [
+        "89",
+        0
+      ]
+    }
+  },
+  "127": {
+    "class_type": "Florence2Run",
+    "inputs": {}
+  },
+  "68": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "63",
+        0
+      ]
+    }
+  },
+  "137": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "10",
+        0
+      ],
+      "lora_name": "夜与玫瑰-F.1暗色调人像摄影-人像光影优化_夜与玫瑰-人像摄影",
+      "strength_model": 0.65
+    }
+  },
+  "41": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "lora_name": "Flux Dev模型4步出图lora_Flux Dev模型4步出图lora_Flux Dev 4-step",
+      "strength_model": 1
+    }
+  },
+  "139": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "35",
+        0
+      ]
+    }
+  },
+  "81": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "41",
+        0
+      ],
+      "conditioning": [
+        "82",
+        0
+      ]
+    }
+  },
+  "82": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "129",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "129": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "127",
+        2
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    }
+  },
+  "88": {
+    "class_type": "easy imageBatchToImageList",
+    "inputs": {}
+  },
+  "92": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "87": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "88",
+        0
+      ]
+    }
+  },
+  "35": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "133": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "137",
+        0
+      ],
+      "lora_name": "徒步户外-欧美风景野外生存 hiking旅行露营写实自然摄影_户外徒步",
+      "strength_model": 0.45
+    }
+  },
+  "66": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "134": {
+    "class_type": "DetailDaemonSamplerNode",
+    "inputs": {}
+  },
+  "128": {
+    "class_type": "DownloadAndLoadFlorence2Model",
+    "inputs": {}
+  },
+  "96": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "64",
+        0
+      ],
+      "guider": [
+        "81",
+        0
+      ],
+      "sampler": [
+        "66",
+        0
+      ],
+      "sigmas": [
+        "95",
+        0
+      ],
+      "latent_image": [
+        "87",
+        0
+      ]
+    }
+  },
+  "99": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "13": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "21",
+        0
+      ],
+      "control_net": [
+        "14",
+        0
+      ],
+      "image": [
+        "35",
+        0
+      ],
+      "strength": 0.9,
+      "start_percent": 0,
+      "end_percent": 1
+    }
+  },
+  "95": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "41",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 4,
+      "denoise": [
+        "145",
+        0
+      ]
+    }
+  },
+  "61": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "145": {
+    "class_type": "SimpleMathSlider+",
+    "inputs": {}
+  },
+  "94": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "89": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "96",
+        0
+      ],
+      "vae": 1024,
+      "tile_size": 64,
+      "overlap": 64,
+      "temporal_size": 8
+    }
+  },
+  "135": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "94",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_51"
+    }
+  },
+  "65": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "41",
+        0
+      ],
+      "conditioning": [
+        "13",
+        0
+      ]
+    }
+  },
+  "67": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "41",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 4,
+      "denoise": 1
+    }
+  },
+  "15": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  }
+}

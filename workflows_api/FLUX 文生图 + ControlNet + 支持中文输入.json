@@ -1,0 +1,439 @@
+{
+  "141": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "140",
+        0
+      ],
+      "scheduler": "normal",
+      "steps": 30,
+      "denoise": 1
+    }
+  },
+  "142": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 530723393958163
+    }
+  },
+  "145": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "153": {
+    "class_type": "RepeatLatentBatch",
+    "inputs": {
+      "samples": [
+        "154",
+        0
+      ],
+      "amount": 1
+    }
+  },
+  "159": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "163": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 928,
+      "height": 1232,
+      "batch_size": 1
+    }
+  },
+  "170": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "156",
+        0
+      ]
+    }
+  },
+  "171": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "152": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "255",
+        0
+      ],
+      "conditioning": [
+        "150",
+        0
+      ]
+    }
+  },
+  "150": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "149",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "146": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "142",
+        0
+      ],
+      "guider": [
+        "152",
+        0
+      ],
+      "sampler": [
+        "145",
+        0
+      ],
+      "sigmas": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "153",
+        0
+      ]
+    }
+  },
+  "151": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "146",
+        0
+      ],
+      "vae": [
+        "144",
+        0
+      ]
+    }
+  },
+  "164": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "173",
+        0
+      ]
+    }
+  },
+  "173": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "268",
+        0
+      ],
+      "vae": [
+        "159",
+        0
+      ]
+    }
+  },
+  "258": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "166": {
+    "class_type": "CLIPTextEncodeFlux",
+    "inputs": {
+      "clip": [
+        "257",
+        1
+      ],
+      "clip_l": "",
+      "t5xxl": [
+        "336",
+        0
+      ],
+      "guidance": "A fashionably colorful girl with green hair, double ponytail, big garden eyes, a somewhat serious expression, wearing a light green T-shirt with a logo \"XMT\" in the middle, and carrying a blue doll backpack. Lower body with white skirt. She had Band-Aids on her legs and was wearing a cool pair of white sneakers and cute green socks. These shoes are uniquely designed and futuristic. On the whole, the shape of the characters is full of personality, fashion sense and future sense, giving people a feeling of vitality. The background is a simple gray to make the main character stand out,"
+    }
+  },
+  "167": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "257",
+        1
+      ]
+    }
+  },
+  "172": {
+    "class_type": "ControlNetApplySD3",
+    "inputs": {
+      "positive": [
+        "166",
+        0
+      ],
+      "negative": [
+        "167",
+        0
+      ],
+      "control_net": [
+        "169",
+        0
+      ],
+      "vae": [
+        "159",
+        0
+      ],
+      "image": [
+        "156",
+        0
+      ],
+      "strength": 0.65,
+      "start_percent": 0,
+      "end_percent": 0.8
+    }
+  },
+  "154": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 768,
+      "height": 1024,
+      "batch_size": 1
+    }
+  },
+  "268": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "257",
+        0
+      ],
+      "seed": 847993715456279,
+      "steps": "randomize",
+      "cfg": 30,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "172",
+        0
+      ],
+      "negative": [
+        "172",
+        1
+      ],
+      "latent_image": [
+        "163",
+        0
+      ],
+      "denoise": "normal"
+    }
+  },
+  "336": {
+    "class_type": "RH_Translator",
+    "inputs": {}
+  },
+  "248": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "256": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "147": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "149": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "337",
+        0
+      ],
+      "clip": [
+        "147",
+        0
+      ]
+    }
+  },
+  "144": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "257": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "162",
+        0
+      ],
+      "clip": [
+        "162",
+        1
+      ],
+      "lora_name": "flux.1_家居_原木风家居设计.v1.0.safetensors",
+      "strength_model": 0.2,
+      "strength_clip": 0.20000000000000004
+    }
+  },
+  "162": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "161",
+        0
+      ],
+      "clip": [
+        "161",
+        1
+      ],
+      "lora_name": "Flux_Moderninterior.safetensors",
+      "strength_model": 0.2,
+      "strength_clip": 0.20000000000000004
+    }
+  },
+  "161": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "160",
+        0
+      ],
+      "clip": [
+        "158",
+        0
+      ],
+      "lora_name": "flux-lora-大家电场景图.safetensors",
+      "strength_model": 0.6000000000000001,
+      "strength_clip": 0.6000000000000001
+    }
+  },
+  "158": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "157": {
+    "class_type": "ControlNetLoaderAdvanced",
+    "inputs": {}
+  },
+  "156": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "169": {
+    "class_type": "SetUnionControlNetType",
+    "inputs": {
+      "control_net": [
+        "157",
+        0
+      ],
+      "type": "canny/lineart/anime_lineart/mlsd"
+    }
+  },
+  "160": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux1-dev-fp8.safetensors",
+      "weight_dtype": "fp8_e5m2"
+    }
+  },
+  "165": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "250": {
+    "class_type": "Fast Groups Bypasser (rgthree)",
+    "inputs": {}
+  },
+  "140": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux1-dev-fp8.safetensors",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "254": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "143",
+        0
+      ],
+      "clip": [
+        "143",
+        1
+      ],
+      "lora_name": "Flux_Moderninterior.safetensors",
+      "strength_model": 0.20000000000000004,
+      "strength_clip": 0.20000000000000004
+    }
+  },
+  "255": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "254",
+        0
+      ],
+      "clip": [
+        "254",
+        1
+      ],
+      "lora_name": "flux.1_家居_原木风家居设计.v1.0.safetensors",
+      "strength_model": 0.20000000000000004,
+      "strength_clip": 0.20000000000000004
+    }
+  },
+  "337": {
+    "class_type": "RH_Translator",
+    "inputs": {}
+  },
+  "143": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "140",
+        0
+      ],
+      "clip": [
+        "147",
+        0
+      ],
+      "lora_name": "国漫画风增强_v1.0.safetensors",
+      "strength_model": 0.6000000000000001,
+      "strength_clip": 0.6000000000000001
+    }
+  },
+  "155": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "151",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_01"
+    }
+  }
+}

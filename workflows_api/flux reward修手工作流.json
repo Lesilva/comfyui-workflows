@@ -1,0 +1,220 @@
+{
+  "16": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "10": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp16",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "34": {
+    "class_type": "Mask Fill Holes",
+    "inputs": {}
+  },
+  "35": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "32": {
+    "class_type": "ImageCompositeMasked",
+    "inputs": {
+      "destination": [
+        "18",
+        0
+      ],
+      "source": [
+        "31",
+        0
+      ],
+      "x": [
+        "22",
+        3
+      ],
+      "y": [
+        "22",
+        2
+      ],
+      "resize_source": 0,
+      "mask": [
+        "22",
+        0
+      ]
+    }
+  },
+  "22": {
+    "class_type": "Mask Crop Region",
+    "inputs": {}
+  },
+  "20": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "17",
+        0
+      ],
+      "vae": [
+        "16",
+        0
+      ]
+    }
+  },
+  "31": {
+    "class_type": "ImageResizeKJ",
+    "inputs": {}
+  },
+  "36": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "25": {
+    "class_type": "ImageCrop",
+    "inputs": {
+      "image": [
+        "18",
+        0
+      ],
+      "width": [
+        "22",
+        6
+      ],
+      "height": [
+        "22",
+        7
+      ],
+      "x": [
+        "22",
+        3
+      ],
+      "y": [
+        "22",
+        2
+      ]
+    }
+  },
+  "11": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "flux.1-fill-dev-OneReward_bf16",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "15": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    }
+  },
+  "13": {
+    "class_type": "DifferentialDiffusion",
+    "inputs": {
+      "model": [
+        "37",
+        0
+      ]
+    }
+  },
+  "14": {
+    "class_type": "InpaintModelConditioning",
+    "inputs": {
+      "positive": [
+        "12",
+        0
+      ],
+      "negative": [
+        "15",
+        0
+      ],
+      "vae": [
+        "16",
+        0
+      ],
+      "pixels": [
+        "36",
+        0
+      ],
+      "mask": [
+        "30",
+        0
+      ],
+      "noise_mask": false
+    }
+  },
+  "17": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "13",
+        0
+      ],
+      "seed": 863176657005219,
+      "steps": "randomize",
+      "cfg": 10,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "14",
+        0
+      ],
+      "negative": [
+        "14",
+        1
+      ],
+      "latent_image": [
+        "14",
+        2
+      ],
+      "denoise": "simple"
+    }
+  },
+  "37": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "lora_name": "FLUX.1八步出图Lora提速版_FLUX.1八步出图Lora",
+      "strength_model": 1
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Perfect hands, perfect fingers",
+      "clip": [
+        "10",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ],
+      "guidance": 35
+    }
+  },
+  "30": {
+    "class_type": "GrowMaskWithBlur",
+    "inputs": {}
+  },
+  "18": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  }
+}

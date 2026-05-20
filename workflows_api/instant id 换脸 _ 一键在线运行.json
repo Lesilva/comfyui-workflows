@@ -1,0 +1,313 @@
+{
+  "109": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "99",
+        0
+      ],
+      "negative": [
+        "98",
+        0
+      ],
+      "control_net": [
+        "110",
+        0
+      ],
+      "image": [
+        "111",
+        0
+      ],
+      "strength": 0.45,
+      "start_percent": 0,
+      "end_percent": 0.6
+    }
+  },
+  "127": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "111",
+        0
+      ]
+    }
+  },
+  "136": {
+    "class_type": "FaceBoundingBox",
+    "inputs": {}
+  },
+  "137": {
+    "class_type": "FaceAnalysisModels",
+    "inputs": {}
+  },
+  "138": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "136",
+        0
+      ]
+    }
+  },
+  "101": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "DreamShaper XL v2.1 Turbo 闪电_v2.1 Turbo"
+    }
+  },
+  "99": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Perfect, high quality, regular",
+      "clip": [
+        "101",
+        1
+      ]
+    }
+  },
+  "98": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "Low quality, irregular",
+      "clip": [
+        "101",
+        1
+      ]
+    }
+  },
+  "111": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "110": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "xinsir_controlnet-canny-sdxl_V2"
+    }
+  },
+  "104": {
+    "class_type": "InstantIDModelLoader",
+    "inputs": {}
+  },
+  "106": {
+    "class_type": "InstantIDFaceAnalysis",
+    "inputs": {}
+  },
+  "105": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "control_instant_id_sdxl"
+    }
+  },
+  "107": {
+    "class_type": "ApplyInstantID",
+    "inputs": {}
+  },
+  "97": {
+    "class_type": "InpaintModelConditioning",
+    "inputs": {
+      "positive": [
+        "107",
+        1
+      ],
+      "negative": [
+        "107",
+        2
+      ],
+      "vae": [
+        "101",
+        2
+      ],
+      "pixels": [
+        "117",
+        0
+      ],
+      "mask": [
+        "120",
+        0
+      ],
+      "noise_mask": true
+    }
+  },
+  "121": {
+    "class_type": "RepeatLatentBatch",
+    "inputs": {
+      "samples": [
+        "97",
+        2
+      ],
+      "amount": 1
+    }
+  },
+  "102": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "107",
+        0
+      ],
+      "seed": 455194316331324,
+      "steps": "randomize",
+      "cfg": 15,
+      "sampler_name": 1.5,
+      "scheduler": "euler_ancestral",
+      "positive": [
+        "97",
+        0
+      ],
+      "negative": [
+        "97",
+        1
+      ],
+      "latent_image": [
+        "121",
+        0
+      ],
+      "denoise": "sgm_uniform"
+    }
+  },
+  "96": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "102",
+        0
+      ],
+      "vae": [
+        "101",
+        2
+      ]
+    }
+  },
+  "125": {
+    "class_type": "SUPIR_Upscale",
+    "inputs": {}
+  },
+  "129": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "96",
+        0
+      ]
+    }
+  },
+  "130": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "131": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "115": {
+    "class_type": "LayerUtility: CropByMask V2",
+    "inputs": {}
+  },
+  "117": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "132": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "115",
+        0
+      ]
+    }
+  },
+  "133": {
+    "class_type": "LayerMask: MaskPreview",
+    "inputs": {}
+  },
+  "123": {
+    "class_type": "LayerMask: PersonMaskUltra V2",
+    "inputs": {}
+  },
+  "120": {
+    "class_type": "CropMask",
+    "inputs": {
+      "mask": [
+        "119",
+        0
+      ],
+      "x": 0,
+      "y": 0,
+      "width": [
+        "118",
+        2
+      ],
+      "height": [
+        "118",
+        3
+      ]
+    }
+  },
+  "119": {
+    "class_type": "MaskBlur+",
+    "inputs": {}
+  },
+  "122": {
+    "class_type": "GrowMask",
+    "inputs": {
+      "mask": [
+        "115",
+        1
+      ],
+      "expand": 40,
+      "tapered_corners": false
+    }
+  },
+  "118": {
+    "class_type": "LayerUtility: CropBoxResolve",
+    "inputs": {}
+  },
+  "134": {
+    "class_type": "LayerMask: MaskPreview",
+    "inputs": {}
+  },
+  "116": {
+    "class_type": "LayerUtility: RestoreCropBox",
+    "inputs": {}
+  },
+  "135": {
+    "class_type": "ColorMatch",
+    "inputs": {}
+  },
+  "103": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "100": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "108": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "124": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "135",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_26"
+    }
+  },
+  "126": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "125",
+        0
+      ]
+    }
+  }
+}

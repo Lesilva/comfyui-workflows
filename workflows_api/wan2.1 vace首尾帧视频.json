@@ -1,0 +1,262 @@
+{
+  "72": {
+    "class_type": "WanVideoSLG",
+    "inputs": {
+      "blocks": "8",
+      "start_percent": 0.30000000000000004,
+      "end_percent": 0.7000000000000002
+    }
+  },
+  "52": {
+    "class_type": "WanVideoTeaCache",
+    "inputs": {
+      "rel_l1_thresh": 0.10000000000000002,
+      "start_step": 0,
+      "end_step": -1,
+      "cache_device": "offload_device",
+      "use_coefficients": "true",
+      "mode": "e"
+    }
+  },
+  "195": {
+    "class_type": "WanVideoEnhanceAVideo",
+    "inputs": {
+      "weight": 2,
+      "start_percent": 0,
+      "end_percent": 1
+    }
+  },
+  "71": {
+    "class_type": "WanVideoExperimentalArgs",
+    "inputs": {
+      "video_attention_split_steps": "",
+      "cfg_zero_star": false,
+      "use_zero_init": true,
+      "zero_star_steps": 0,
+      "use_fresca": false,
+      "fresca_scale_low": 1,
+      "fresca_scale_high": 1.25,
+      "fresca_freq_cutoff": 20
+    }
+  },
+  "200": {
+    "class_type": "WanVideoLoraSelect",
+    "inputs": {
+      "lora": "Wan2.1_I2V_14B_FusionX_LoRA_I2V_14B",
+      "strength": 1,
+      "prev_lora": false
+    }
+  },
+  "22": {
+    "class_type": "WanVideoModelLoader",
+    "inputs": {
+      "model": "Wan2_1-T2V-14B_fp8_e4m3fn.safetensors",
+      "base_precision": "fp16",
+      "quantization": "fp8_e4m3fn",
+      "load_device": "offload_device",
+      "attention_mode": "sdpa"
+    }
+  },
+  "64": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "112": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "204": {
+    "class_type": "LayerUtility: ImageMaskScaleAs",
+    "inputs": {}
+  },
+  "203": {
+    "class_type": "ImageResizeKJv2",
+    "inputs": {}
+  },
+  "111": {
+    "class_type": "WanVideoVACEStartToEndFrame",
+    "inputs": {
+      "num_frames": 81,
+      "empty_frame_level": 0,
+      "start_image": [
+        "203",
+        0
+      ],
+      "end_image": [
+        "204",
+        0
+      ]
+    }
+  },
+  "194": {
+    "class_type": "WanVideoVACEEncode",
+    "inputs": {
+      "vae": [
+        "38",
+        0
+      ],
+      "width": [
+        "104",
+        1
+      ],
+      "height": [
+        "104",
+        2
+      ],
+      "num_frames": [
+        "104",
+        3
+      ],
+      "strength": 832,
+      "vace_start_percent": 480,
+      "vace_end_percent": 81,
+      "input_frames": [
+        "104",
+        0
+      ],
+      "ref_images": [
+        "203",
+        0
+      ],
+      "input_masks": [
+        "111",
+        1
+      ],
+      "prev_vace_embeds": 1,
+      "tiled_vae": 0
+    }
+  },
+  "39": {
+    "class_type": "WanVideoBlockSwap",
+    "inputs": {
+      "blocks_to_swap": 20,
+      "offload_img_emb": false,
+      "offload_txt_emb": false,
+      "use_non_blocking": true,
+      "vace_blocks_to_swap": 15
+    }
+  },
+  "202": {
+    "class_type": "WanVideoVACEModelSelect",
+    "inputs": {
+      "vace_model": "Wan2_1-VACE_module_14B_fp8_e4m3fn.safetensors"
+    }
+  },
+  "11": {
+    "class_type": "LoadWanVideoT5TextEncoder",
+    "inputs": {
+      "model_name": "umt5-xxl-enc-bf16.safetensors",
+      "precision": "bf16",
+      "load_device": "offload_device",
+      "quantization": "disabled"
+    }
+  },
+  "205": {
+    "class_type": "PrimitiveNode",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "WanVideoTextEncode",
+    "inputs": {
+      "positive_prompt": [
+        "205",
+        0
+      ],
+      "negative_prompt": "两个人合照自拍",
+      "t5": [
+        "11",
+        0
+      ],
+      "force_offload": "colorful, bad quality, blurry, messy, chaotic",
+      "model_to_offload": [
+        "22",
+        0
+      ],
+      "use_disk_cache": true
+    }
+  },
+  "70": {
+    "class_type": "WanVideoSampler",
+    "inputs": {
+      "model": [
+        "22",
+        0
+      ],
+      "image_embeds": [
+        "194",
+        0
+      ],
+      "steps": 9,
+      "cfg": 1,
+      "shift": 8,
+      "seed": 329115804558138,
+      "force_offload": "randomize",
+      "scheduler": true,
+      "riflex_freq_index": "dpm++",
+      "text_embeds": [
+        "16",
+        0
+      ],
+      "samples": 0,
+      "denoise_strength": 1,
+      "feta_args": [
+        "195",
+        0
+      ],
+      "context_options": false,
+      "cache_args": [
+        "52",
+        0
+      ],
+      "flowedit_args": "comfy"
+    }
+  },
+  "138": {
+    "class_type": "WanVideoDecode",
+    "inputs": {
+      "vae": [
+        "38",
+        0
+      ],
+      "samples": [
+        "70",
+        0
+      ],
+      "enable_vae_tiling": false,
+      "tile_x": 272,
+      "tile_y": 272,
+      "tile_stride_x": 144,
+      "tile_stride_y": 128,
+      "normalization": "default"
+    }
+  },
+  "38": {
+    "class_type": "WanVideoVAELoader",
+    "inputs": {
+      "model_name": "Wan2_1_VAE_bf16.safetensors",
+      "precision": "bf16"
+    }
+  },
+  "139": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "138",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_34",
+      "format": "format",
+      "pingpong": "pix_fmt",
+      "save_output": "crf",
+      "audio": "save_metadata",
+      "meta_batch": "trim_to_audio",
+      "vae": "pingpong"
+    }
+  }
+}

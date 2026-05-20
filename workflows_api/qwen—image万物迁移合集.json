@@ -1,0 +1,211 @@
+{
+  "14": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Qwen-lmage-Edit/图片编辑_fp8",
+      "weight_dtype": "default"
+    }
+  },
+  "29": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "11": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "13",
+        0
+      ],
+      "lora_name": "Qwen-Image-Lightning-8steps-V1.1-bf16.safetensors_Qwen 8步 出图",
+      "strength_model": 0.6
+    }
+  },
+  "28": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    }
+  },
+  "15": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "14",
+        0
+      ],
+      "lora_name": "Qwen-Edit产品精修_Qwen-Edit2.0",
+      "strength_model": 1
+    }
+  },
+  "10": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "12",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    }
+  },
+  "24": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "23",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "22",
+        0
+      ]
+    }
+  },
+  "13": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "15",
+        0
+      ],
+      "lora_name": "qwen edit降低变图稳定器_V1",
+      "strength_model": 1
+    }
+  },
+  "16": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "29",
+        0
+      ],
+      "prompt": "ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),low quality,blurry,bad anatomy,lowres,worstquality,cropped,bad proportions,",
+      "vae": [
+        "28",
+        0
+      ],
+      "image": [
+        "12",
+        0
+      ]
+    }
+  },
+  "25": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "27",
+        0
+      ],
+      "seed": 0,
+      "steps": "fixed",
+      "cfg": 8,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "26",
+        0
+      ],
+      "negative": [
+        "16",
+        0
+      ],
+      "latent_image": [
+        "10",
+        0
+      ],
+      "denoise": "beta"
+    }
+  },
+  "27": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "shift": 3.1
+    }
+  },
+  "22": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "23": {
+    "class_type": "RepeatLatentBatch",
+    "inputs": {
+      "samples": [
+        "25",
+        0
+      ],
+      "amount": 1
+    }
+  },
+  "21": {
+    "class_type": "ImageConcanate",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "24",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_33"
+    }
+  },
+  "18": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "21",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "20": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "26": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "29",
+        0
+      ],
+      "prompt": "A natural life-shot scene, where the person casually holds the product in an everyday environment. The hand movements are relaxed and natural, the finger structure is clear and without deformity, the product details are clearly visible, the texture is real, the light and shadow are soft, the picture atmosphere is relaxed and natural, the character's expression is real and vivid, and the overall sense of reality is presented, without any AI or plastic feeling.",
+      "vae": [
+        "28",
+        0
+      ],
+      "image": [
+        "12",
+        0
+      ]
+    }
+  }
+}

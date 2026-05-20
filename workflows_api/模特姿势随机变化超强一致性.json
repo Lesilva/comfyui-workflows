@@ -1,0 +1,455 @@
+{
+  "628": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "712",
+        0
+      ],
+      "conditioning": [
+        "626",
+        0
+      ]
+    }
+  },
+  "630": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "624": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "635",
+        0
+      ],
+      "clip": [
+        "622",
+        0
+      ]
+    }
+  },
+  "634": {
+    "class_type": "RepeatLatentBatch",
+    "inputs": {
+      "samples": [
+        "631",
+        0
+      ],
+      "amount": [
+        "637",
+        0
+      ]
+    }
+  },
+  "691": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "fp8_e4m3fn_fast"
+    }
+  },
+  "693": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "711",
+        0
+      ],
+      "conditioning": [
+        "700",
+        0
+      ]
+    }
+  },
+  "695": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "698": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "699": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "708",
+        0
+      ],
+      "clip": [
+        "690",
+        0
+      ]
+    }
+  },
+  "705": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "706": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 452019382382925
+    }
+  },
+  "692": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "699",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "708": {
+    "class_type": "CR Text",
+    "inputs": {}
+  },
+  "625": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "624",
+        0
+      ],
+      "guidance": 2.5
+    }
+  },
+  "626": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "625",
+        0
+      ],
+      "latent": [
+        "627",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 694837994028502
+    }
+  },
+  "697": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "706",
+        0
+      ],
+      "guider": [
+        "693",
+        0
+      ],
+      "sampler": [
+        "695",
+        0
+      ],
+      "sigmas": [
+        "694",
+        0
+      ],
+      "latent_image": [
+        "665",
+        0
+      ]
+    }
+  },
+  "632": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "633",
+        0
+      ],
+      "vae": [
+        "621",
+        0
+      ]
+    }
+  },
+  "696": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "697",
+        0
+      ],
+      "vae": [
+        "705",
+        0
+      ]
+    }
+  },
+  "665": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 1024,
+      "height": 2048,
+      "batch_size": [
+        "637",
+        0
+      ]
+    }
+  },
+  "701": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "704",
+        0
+      ],
+      "vae": [
+        "705",
+        0
+      ]
+    }
+  },
+  "700": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "692",
+        0
+      ],
+      "latent": [
+        "701",
+        0
+      ]
+    }
+  },
+  "694": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "711",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 16,
+      "denoise": 1
+    }
+  },
+  "704": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "698",
+        0
+      ]
+    }
+  },
+  "711": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "703",
+        0
+      ],
+      "lora_name": "Flux Turbo Lora加速模型_StarAi_Flux Turbo Lora",
+      "strength_model": 1
+    }
+  },
+  "627": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "620",
+        0
+      ],
+      "vae": [
+        "621",
+        0
+      ]
+    }
+  },
+  "629": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "712",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 16,
+      "denoise": 1
+    }
+  },
+  "636": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "620": {
+    "class_type": "FluxKontextImageScale",
+    "inputs": {
+      "image": [
+        "636",
+        0
+      ]
+    }
+  },
+  "621": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "631": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "636",
+        0
+      ],
+      "vae": [
+        "621",
+        0
+      ]
+    }
+  },
+  "623": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "fp8_e4m3fn_fast"
+    }
+  },
+  "637": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": 3
+    }
+  },
+  "633": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "17",
+        0
+      ],
+      "guider": [
+        "628",
+        0
+      ],
+      "sampler": [
+        "630",
+        0
+      ],
+      "sigmas": [
+        "629",
+        0
+      ],
+      "latent_image": [
+        "634",
+        0
+      ]
+    }
+  },
+  "639": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "623",
+        0
+      ],
+      "lora_name": "Kontext模特一致性姿势变换_Kontext_模特姿势变换",
+      "strength_model": [
+        "713",
+        0
+      ]
+    }
+  },
+  "689": {
+    "class_type": "Fast Groups Muter (rgthree)",
+    "inputs": {}
+  },
+  "710": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "696",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_57"
+    }
+  },
+  "664": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "632",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_57"
+    }
+  },
+  "635": {
+    "class_type": "CR Text",
+    "inputs": {}
+  },
+  "79": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "712": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "639",
+        0
+      ],
+      "lora_name": "Flux Turbo Lora加速模型_StarAi_Flux Turbo Lora",
+      "strength_model": 1
+    }
+  },
+  "622": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp16",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "703": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "691",
+        0
+      ],
+      "lora_name": "Kontext模特一致性姿势变换_Kontext_模特姿势变换",
+      "strength_model": [
+        "713",
+        0
+      ]
+    }
+  },
+  "690": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "t5xxl_fp16",
+      "clip_name2": "clip_l",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "713": {
+    "class_type": "Float",
+    "inputs": {}
+  }
+}

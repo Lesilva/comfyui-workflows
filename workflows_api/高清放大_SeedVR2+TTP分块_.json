@@ -1,0 +1,80 @@
+{
+  "121": {
+    "class_type": "easy imageSize",
+    "inputs": {}
+  },
+  "134": {
+    "class_type": "ImpactMinMax",
+    "inputs": {
+      "mode": false,
+      "a": [
+        "121",
+        0
+      ],
+      "b": [
+        "121",
+        1
+      ]
+    }
+  },
+  "140": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "137": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "135": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "183": {
+    "class_type": "ImageResize+",
+    "inputs": {}
+  },
+  "132": {
+    "class_type": "SeedVR2",
+    "inputs": {}
+  },
+  "129": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "130": {
+    "class_type": "ImageCASharpening+",
+    "inputs": {}
+  },
+  "133": {
+    "class_type": "ImageCASharpening+",
+    "inputs": {}
+  },
+  "184": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "180": {
+    "class_type": "SimpleMath+",
+    "inputs": {}
+  },
+  "182": {
+    "class_type": "Int",
+    "inputs": {}
+  },
+  "185": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "130",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_65"
+    }
+  },
+  "181": {
+    "class_type": "Int",
+    "inputs": {}
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "25": {
+    "class_type": "WanVideoVACEModelSelect",
+    "inputs": {
+      "vace_model": "Wan2_1-VACE_module_14B_fp8_e4m3fn.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "WanVideoVAELoader",
+    "inputs": {
+      "model_name": "Wan2_1_VAE_bf16.safetensors",
+      "precision": "bf16"
+    }
+  },
+  "27": {
+    "class_type": "WanVideoTeaCache",
+    "inputs": {
+      "rel_l1_thresh": 0.25000000000000006,
+      "start_step": 0,
+      "end_step": -1,
+      "cache_device": "offload_device",
+      "use_coefficients": true,
+      "mode": "e"
+    }
+  },
+  "26": {
+    "class_type": "WanVideoEnhanceAVideo",
+    "inputs": {
+      "weight": 2,
+      "start_percent": 0,
+      "end_percent": 1
+    }
+  },
+  "22": {
+    "class_type": "TextInput_",
+    "inputs": {}
+  },
+  "43": {
+    "class_type": "StringFunction|pysssss",
+    "inputs": {}
+  },
+  "28": {
+    "class_type": "WanVideoSLG",
+    "inputs": {
+      "blocks": "9",
+      "start_percent": 0.30000000000000004,
+      "end_percent": 0.7000000000000002
+    }
+  },
+  "29": {
+    "class_type": "WanVideoExperimentalArgs",
+    "inputs": {
+      "video_attention_split_steps": "",
+      "cfg_zero_star": true,
+      "use_zero_init": false,
+      "zero_star_steps": 0,
+      "use_fresca": false,
+      "fresca_scale_low": 1,
+      "fresca_scale_high": 1.25,
+      "fresca_freq_cutoff": 20
+    }
+  },
+  "10": {
+    "class_type": "WanVideoDecode",
+    "inputs": {
+      "vae": [
+        "2",
+        0
+      ],
+      "samples": [
+        "11",
+        0
+      ],
+      "enable_vae_tiling": true,
+      "tile_x": 272,
+      "tile_y": 272,
+      "tile_stride_x": 144,
+      "tile_stride_y": 128
+    }
+  },
+  "9": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_63",
+      "format": "format",
+      "pingpong": "pix_fmt",
+      "save_output": "crf",
+      "audio": "save_metadata",
+      "meta_batch": "trim_to_audio",
+      "vae": "pingpong"
+    }
+  },
+  "5": {
+    "class_type": "WanVideoTorchCompileSettings",
+    "inputs": {
+      "backend": "inductor",
+      "fullgraph": false,
+      "mode": "default",
+      "dynamic": false,
+      "dynamo_cache_size_limit": 64,
+      "compile_transformer_blocks_only": true,
+      "dynamo_recompile_limit": 128
+    }
+  },
+  "21": {
+    "class_type": "ImageResizeKJ",
+    "inputs": {}
+  },
+  "4": {
+    "class_type": "WanVideoModelLoader",
+    "inputs": {
+      "model": "Wan2_1-T2V-14B_fp8_e4m3fn.safetensors",
+      "base_precision": "fp16",
+      "quantization": "fp8_e4m3fn",
+      "load_device": "offload_device",
+      "attention_mode": "sageattn",
+      "compile_args": [
+        "5",
+        0
+      ],
+      "block_swap_args": [
+        "30",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "39": {
+    "class_type": "VHS_VideoCombine",
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ],
+      "frame_rate": "frame_rate",
+      "loop_count": "loop_count",
+      "filename_prefix": "shared_workflows/workflow_63",
+      "format": "format",
+      "pingpong": "pix_fmt",
+      "save_output": "crf",
+      "audio": "save_metadata",
+      "meta_batch": "trim_to_audio",
+      "vae": "pingpong"
+    }
+  },
+  "7": {
+    "class_type": "LoadWanVideoT5TextEncoder",
+    "inputs": {
+      "model_name": "umt5-xxl-enc-bf16.safetensors",
+      "precision": "bf16",
+      "load_device": "offload_device",
+      "quantization": "disabled"
+    }
+  },
+  "20": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "41": {
+    "class_type": "Joy_caption_two_load",
+    "inputs": {}
+  },
+  "42": {
+    "class_type": "Joy_caption_two",
+    "inputs": {}
+  },
+  "30": {
+    "class_type": "WanVideoBlockSwap",
+    "inputs": {
+      "blocks_to_swap": 20,
+      "offload_img_emb": false,
+      "offload_txt_emb": false,
+      "use_non_blocking": true,
+      "vace_blocks_to_swap": 0
+    }
+  },
+  "19": {
+    "class_type": "ImageResizeKJ",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "VHS_LoadVideo",
+    "inputs": {
+      "video": "example_video_01.mp4",
+      "force_rate": "force_rate",
+      "custom_width": "custom_width",
+      "custom_height": "custom_height",
+      "frame_load_cap": [
+        "46",
+        0
+      ],
+      "skip_first_frames": "frame_load_cap",
+      "select_every_nth": "skip_first_frames",
+      "meta_batch": "select_every_nth",
+      "vae": "format",
+      "format": "choose video to upload"
+    }
+  },
+  "46": {
+    "class_type": "PrimitiveNode",
+    "inputs": {}
+  },
+  "11": {
+    "class_type": "WanVideoSampler",
+    "inputs": {
+      "model": [
+        "4",
+        0
+      ],
+      "image_embeds": [
+        "12",
+        0
+      ],
+      "steps": 30,
+      "cfg": 6.000000000000001,
+      "shift": 5.000000000000001,
+      "seed": 1057359483639288,
+      "force_offload": "fixed",
+      "scheduler": true,
+      "riflex_freq_index": "dpm++",
+      "text_embeds": [
+        "13",
+        0
+      ],
+      "samples": 0,
+      "denoise_strength": 1,
+      "feta_args": [
+        "26",
+        0
+      ],
+      "context_options": "",
+      "cache_args": [
+        "27",
+        0
+      ],
+      "flowedit_args": "comfy"
+    }
+  },
+  "13": {
+    "class_type": "WanVideoTextEncode",
+    "inputs": {
+      "positive_prompt": [
+        "43",
+        0
+      ],
+      "negative_prompt": "美女跳舞\n",
+      "t5": [
+        "7",
+        0
+      ],
+      "force_offload": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "model_to_offload": true
+    }
+  },
+  "12": {
+    "class_type": "WanVideoVACEEncode",
+    "inputs": {
+      "vae": [
+        "2",
+        0
+      ],
+      "width": [
+        "19",
+        1
+      ],
+      "height": [
+        "19",
+        2
+      ],
+      "num_frames": [
+        "14",
+        1
+      ],
+      "strength": 832,
+      "vace_start_percent": 480,
+      "vace_end_percent": 33,
+      "input_frames": [
+        "3",
+        0
+      ],
+      "ref_images": [
+        "21",
+        0
+      ],
+      "input_masks": 1,
+      "prev_vace_embeds": 0,
+      "tiled_vae": 1
+    }
+  }
+}

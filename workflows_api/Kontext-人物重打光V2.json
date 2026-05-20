@@ -1,0 +1,164 @@
+{
+  "18": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "22",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    }
+  },
+  "21": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "16",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_18"
+    }
+  },
+  "11": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1 Kontext dev_fp8",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "12": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "27": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "10": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "16": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "15",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    }
+  },
+  "22": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "15": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "13",
+        0
+      ],
+      "seed": [
+        "26",
+        0
+      ],
+      "steps": 784381637916598,
+      "cfg": "fixed",
+      "sampler_name": 20,
+      "scheduler": 1,
+      "positive": [
+        "14",
+        0
+      ],
+      "negative": [
+        "17",
+        0
+      ],
+      "latent_image": [
+        "18",
+        0
+      ],
+      "denoise": "euler"
+    }
+  },
+  "20": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": [
+        "23",
+        0
+      ],
+      "clip": [
+        "12",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "ReferenceLatent",
+    "inputs": {
+      "conditioning": [
+        "20",
+        0
+      ],
+      "latent": [
+        "18",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "20",
+        0
+      ]
+    }
+  },
+  "26": {
+    "class_type": "Seed (rgthree)",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "FluxGuidance",
+    "inputs": {
+      "conditioning": [
+        "19",
+        0
+      ],
+      "guidance": 3.5
+    }
+  },
+  "23": {
+    "class_type": "LibLibTranslate",
+    "inputs": {}
+  },
+  "13": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "11",
+        0
+      ],
+      "lora_name": "Kontext-人物重打光LORA_V2",
+      "strength_model": 0.8
+    }
+  }
+}

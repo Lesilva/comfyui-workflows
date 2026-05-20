@@ -1,0 +1,88 @@
+{
+  "15": {
+    "class_type": "LibLibSeedreamV4Node",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "ImageBatchMulti",
+    "inputs": {}
+  },
+  "28": {
+    "class_type": "DepthAnything_V2",
+    "inputs": {}
+  },
+  "25": {
+    "class_type": "DWPreprocessor",
+    "inputs": {}
+  },
+  "23": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "18": {
+    "class_type": "ImageResizeKJv2",
+    "inputs": {}
+  },
+  "24": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ]
+    }
+  },
+  "21": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": [
+        "16",
+        1
+      ]
+    }
+  },
+  "22": {
+    "class_type": "ImpactInt",
+    "inputs": {
+      "value": [
+        "16",
+        2
+      ]
+    }
+  },
+  "16": {
+    "class_type": "ImageResizeKJv2",
+    "inputs": {}
+  },
+  "29": {
+    "class_type": "DownloadAndLoadDepthAnythingV2Model",
+    "inputs": {}
+  },
+  "26": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "25",
+        0
+      ]
+    }
+  },
+  "19": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "20": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "52": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_03.png"
+    }
+  }
+}

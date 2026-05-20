@@ -1,0 +1,301 @@
+{
+  "56": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "FLUX.1-dev-ControlNet-Union-Pro-InstantX.safetensors"
+    }
+  },
+  "63": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "57",
+        0
+      ]
+    }
+  },
+  "114": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "92",
+        0
+      ]
+    }
+  },
+  "116": {
+    "class_type": "LayerMask: MaskGrow",
+    "inputs": {}
+  },
+  "84": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "88": {
+    "class_type": "GetImageSize+",
+    "inputs": {}
+  },
+  "53": {
+    "class_type": "CLIPTextEncodeFlux",
+    "inputs": {
+      "clip": [
+        "52",
+        1
+      ],
+      "clip_l": [
+        "118",
+        0
+      ],
+      "t5xxl": [
+        "118",
+        0
+      ],
+      "guidance": "Generate a game tournament poster with a central focus on a unique and artistically designed crystal flower. The petals of the flower are carved from transparent crystal with a faint blue luster, gradually darkening from the stamen outward to create a profound and mysterious visual effect. The petal edges are in an irregular wavy shape, resembling the natural form blown by the wind, and inlaid with tiny diamonds that sparkle dazzlingly under the refraction of light, like the stars in the night sky. The stamen is a large oval crystal emitting a soft pink glow, with faintly visible golden filaments inside, like the veins of life, adding a touch of vitality and liveliness to the whole flower. The flower stem consists of a silver wire entwined with a lavender crystal column, engraved with delicate patterns that spiral upward, symbolizing growth and strength. The bottom of the stem is rooted in a circular base made of white crystal, carved with mysterious runes symbolizing the game world, emitting a faint blue light, providing a stable and mysterious support for the flower. Surrounding the crystal flower is an expansive flower sea with rich and soft colors, full of a dreamy feeling. The near flower sea is dominated by large areas of pink roses. The rose petals are thick and delicate, full and charming, with a faint golden sheen on each petal, as if gently caressed by the sun. Among the rose bushes are occasionally dotted a few white lilies. The lily petals are wide and soft, and the stamens are light yellow, emitting a fresh fragrance, forming a sharp contrast with the surrounding vibrant pink roses, creating an elegant and quiet atmosphere. In the distance of the flower sea is a purple lavender field, with the lavender flowers swaying gently in the breeze and emitting a charming aroma, adding a romantic and poetic touch to the whole picture. Above the flower sea floats a layer of faint golden mist, which sparkles with tiny light spots under the sunlight, like the powder of elves, making the whole flower sea look more dreamy. At the end of the flower sea are rolling mountains, shrouded in a pale blue veil, looming, like a landscape in a Chinese ink-wash painting, adding a distant and mysterious atmosphere to the flower sea. Around the crystal flower and the flower sea, there is a faint colorful glow, like the fragments of a rainbow, sprinkling on the ground, making the whole picture bright and warm. There are also some tiny crystal particles in the glow, like elves jumping merrily in the air, adding a lively touch to the picture. From the stamen of the crystal flower, several soft rays are shot out from time to time, like moonlight, scattering in all directions, illuminating the surrounding flower sea and sky. Where the rays reach, the colors of the flowers become more vivid and the sky becomes clearer, as if cheering for this unique crystal flower. Occasionally, several butterflies with transparent wings fly up from the flower clusters. Their wings are speckled with colorful lights and they dance gracefully in the light, adding vitality and energy to the picture."
+    }
+  },
+  "95": {
+    "class_type": "MaskPreview+",
+    "inputs": {}
+  },
+  "92": {
+    "class_type": "LayerMask: SegmentAnythingUltra V2",
+    "inputs": {}
+  },
+  "57": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "71": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "FLUX.1-dev-ControlNet-Union-Pro-InstantX.safetensors"
+    }
+  },
+  "73": {
+    "class_type": "AIO_Preprocessor",
+    "inputs": {}
+  },
+  "51": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "164",
+        0
+      ],
+      "clip": [
+        "164",
+        1
+      ],
+      "lora_name": "真实摄影细节加强滤镜_v1.0",
+      "strength_model": 0.26,
+      "strength_clip": 0.19999999999999987
+    }
+  },
+  "58": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "52",
+        1
+      ]
+    }
+  },
+  "68": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "66",
+        0
+      ],
+      "vae": [
+        "50",
+        0
+      ]
+    }
+  },
+  "72": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "73",
+        0
+      ]
+    }
+  },
+  "123": {
+    "class_type": "easy cleanGpuUsed",
+    "inputs": {}
+  },
+  "74": {
+    "class_type": "ControlNetApplySD3",
+    "inputs": {
+      "positive": [
+        "55",
+        0
+      ],
+      "negative": [
+        "55",
+        1
+      ],
+      "control_net": [
+        "71",
+        0
+      ],
+      "vae": [
+        "50",
+        0
+      ],
+      "image": [
+        "73",
+        0
+      ],
+      "strength": 0.7500000000000002,
+      "start_percent": 0,
+      "end_percent": 0.75
+    }
+  },
+  "97": {
+    "class_type": "InvertMask",
+    "inputs": {
+      "mask": [
+        "116",
+        0
+      ]
+    }
+  },
+  "48": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "基础算法_F.1",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "49": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp8_e4m3fn",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "50": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "70": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": [
+        "88",
+        0
+      ],
+      "height": [
+        "88",
+        1
+      ],
+      "batch_size": 1080
+    }
+  },
+  "59": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "118": {
+    "class_type": "LibLibTranslate",
+    "inputs": {}
+  },
+  "66": {
+    "class_type": "KSampler //Inspire",
+    "inputs": {}
+  },
+  "121": {
+    "class_type": "LayerUtility: ImageBlendAdvance",
+    "inputs": {}
+  },
+  "69": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "68",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_03"
+    }
+  },
+  "143": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "121",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_03"
+    }
+  },
+  "52": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "51",
+        0
+      ],
+      "clip": [
+        "51",
+        1
+      ],
+      "lora_name": "ins简约电商摄影产品场景_ins简约写实电商摄影进阶版",
+      "strength_model": 0.5,
+      "strength_clip": 1
+    }
+  },
+  "55": {
+    "class_type": "ControlNetApplySD3",
+    "inputs": {
+      "positive": [
+        "53",
+        0
+      ],
+      "negative": [
+        "58",
+        0
+      ],
+      "control_net": [
+        "56",
+        0
+      ],
+      "vae": [
+        "50",
+        0
+      ],
+      "image": [
+        "57",
+        0
+      ],
+      "strength": 0.25,
+      "start_percent": 0,
+      "end_percent": 0.25
+    }
+  },
+  "164": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "48",
+        0
+      ],
+      "clip": [
+        "49",
+        0
+      ],
+      "lora_name": "QY_F.1-手部优化 ，手指修复，美甲艺术_电商手模_V1",
+      "strength_model": 0.7000000000000002,
+      "strength_clip": 1
+    }
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "5": {
+    "class_type": "ConditioningZeroOut",
+    "inputs": {
+      "conditioning": [
+        "2",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "18",
+        1
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "14": {
+    "class_type": "TTP_Image_Assy",
+    "inputs": {}
+  },
+  "15": {
+    "class_type": "TTP_Tile_image_size",
+    "inputs": {}
+  },
+  "35": {
+    "class_type": "easy imageListToImageBatch",
+    "inputs": {}
+  },
+  "36": {
+    "class_type": "easy imageBatchToImageList",
+    "inputs": {}
+  },
+  "50": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "13",
+        0
+      ]
+    }
+  },
+  "55": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "16",
+        0
+      ]
+    }
+  },
+  "56": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "43",
+        0
+      ]
+    }
+  },
+  "58": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ]
+    }
+  },
+  "81": {
+    "class_type": "easy imageSize",
+    "inputs": {}
+  },
+  "82": {
+    "class_type": "easy imageSize",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "43": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "44",
+        0
+      ],
+      "image": [
+        "16",
+        0
+      ]
+    }
+  },
+  "8": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "F.1基础模型_fp16",
+      "weight_dtype": "fp8_e4m3fn"
+    }
+  },
+  "44": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4xNomos8kSCHAT-L"
+    }
+  },
+  "3": {
+    "class_type": "DualCLIPLoader",
+    "inputs": {
+      "clip_name1": "clip_l",
+      "clip_name2": "t5xxl_fp16",
+      "type": "flux",
+      "device": "default"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "ae.sft"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncodeFlux",
+    "inputs": {
+      "clip": [
+        "3",
+        0
+      ],
+      "clip_l": [
+        "77",
+        0
+      ],
+      "t5xxl": [
+        "77",
+        0
+      ],
+      "guidance": ""
+    }
+  },
+  "31": {
+    "class_type": "LayerMask: LoadFlorence2Model",
+    "inputs": {}
+  },
+  "13": {
+    "class_type": "TTP_Image_Tile_Batch",
+    "inputs": {}
+  },
+  "77": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "7": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "8",
+        0
+      ],
+      "lora_name": "FLUX.1八步出图Lora提速版_FLUX.1八步出图Lora",
+      "strength_model": 1
+    }
+  },
+  "53": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "lora_name": "AWPortraitFL LoRA_1.0",
+      "strength_model": 0.65
+    }
+  },
+  "18": {
+    "class_type": "LayerUtility: Florence2Image2Prompt",
+    "inputs": {}
+  },
+  "131": {
+    "class_type": "ShowText|pysssss",
+    "inputs": {}
+  },
+  "9": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "53",
+        0
+      ],
+      "seed": 1027884558308698,
+      "steps": "randomize",
+      "cfg": 8,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "12",
+        0
+      ],
+      "denoise": "beta"
+    }
+  },
+  "130": {
+    "class_type": "LibLibTranslate",
+    "inputs": {}
+  },
+  "57": {
+    "class_type": "Image Comparer (rgthree)",
+    "inputs": {}
+  },
+  "11": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  }
+}

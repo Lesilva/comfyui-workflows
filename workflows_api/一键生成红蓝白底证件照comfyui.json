@@ -1,0 +1,71 @@
+{
+  "15": {
+    "class_type": "AddBackgroundNode",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "LaterProcessNode",
+    "inputs": {}
+  },
+  "17": {
+    "class_type": "HivisionLayOutNode",
+    "inputs": {}
+  },
+  "20": {
+    "class_type": "HivisionNode",
+    "inputs": {}
+  },
+  "21": {
+    "class_type": "ENHivisionParamsNode",
+    "inputs": {}
+  },
+  "24": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "16",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_41"
+    }
+  },
+  "23": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "20",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_41"
+    }
+  },
+  "22": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "20",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_41"
+    }
+  },
+  "14": {
+    "class_type": "PreviewImage",
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ]
+    }
+  },
+  "18": {
+    "class_type": "AddWaterMarkNode",
+    "inputs": {}
+  },
+  "19": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "12": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "14": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "16": {
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "inputs": {}
+  },
+  "18": {
+    "class_type": "easy showAnything",
+    "inputs": {}
+  },
+  "15": {
+    "class_type": "NineGridMosaicNode",
+    "inputs": {}
+  },
+  "10": {
+    "class_type": "GeminiImageNode",
+    "inputs": {
+      "prompt": "让图1的女性穿上图2的套装服饰，保持动作姿势不变，生成全身照",
+      "model": "gemini-2.5-flash-image-preview",
+      "seed": 647372937309965,
+      "images": [
+        "16",
+        0
+      ],
+      "files": "randomize"
+    }
+  },
+  "11": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "13": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_02.png"
+    }
+  },
+  "17": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_59"
+    }
+  }
+}

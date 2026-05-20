@@ -1,0 +1,703 @@
+{
+  "127": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "Qwen-Edit_1.0",
+      "weight_dtype": "default"
+    }
+  },
+  "132": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "136",
+        0
+      ],
+      "lora_name": "Qwen-image4步极速生图_v1",
+      "strength_model": 1
+    }
+  },
+  "136": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "127",
+        0
+      ],
+      "lora_name": "麦橘千问美人 majicbeauty-Qwen_初版",
+      "strength_model": 0.8
+    }
+  },
+  "131": {
+    "class_type": "ModelSamplingAuraFlow",
+    "inputs": {
+      "model": [
+        "132",
+        0
+      ],
+      "shift": 3.1000000000000005
+    }
+  },
+  "130": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "138",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "138": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 1089376802284355,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "140",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "142": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "143": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "145",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "145": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 944307998842197,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "144",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "140": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "142",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "144": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "146",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "146": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "137": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "130",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "147": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "143",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "152": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "148",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "148": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "149",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "151": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "149": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 854421451444556,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "150",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "156": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "155": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "156",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "134": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "type": "qwen_image",
+      "device": "default"
+    }
+  },
+  "141": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "",
+      "clip": [
+        "134",
+        0
+      ]
+    }
+  },
+  "159": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 14488413526960,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "161",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "129": {
+    "class_type": "EmptySD3LatentImage",
+    "inputs": {
+      "width": [
+        "181",
+        1
+      ],
+      "height": [
+        "181",
+        2
+      ],
+      "batch_size": 720
+    }
+  },
+  "158": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "159",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "161": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "160",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "160": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "157": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 127213155324278,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "155",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "163": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "165",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "165": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "164",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "166": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "167",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "167": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "164": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 193901560170625,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "166",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "169": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "170",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "133": {
+    "class_type": "CFGNorm",
+    "inputs": {
+      "model": [
+        "131",
+        0
+      ],
+      "strength": 1
+    }
+  },
+  "135": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    }
+  },
+  "170": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "173",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "172": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "173": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 193283474605612,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "171",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "171": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "172",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "175": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "176",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "178": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "133",
+        0
+      ],
+      "seed": 553616248153450,
+      "steps": "randomize",
+      "cfg": 4,
+      "sampler_name": 1,
+      "scheduler": "euler",
+      "positive": [
+        "179",
+        0
+      ],
+      "negative": [
+        "141",
+        0
+      ],
+      "latent_image": [
+        "129",
+        0
+      ],
+      "denoise": "simple"
+    }
+  },
+  "176": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "178",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "179": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "177",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "177": {
+    "class_type": "Text Multiline",
+    "inputs": {}
+  },
+  "153": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "154",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "162": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "158",
+        0
+      ],
+      "filename_prefix": "shared_workflows/workflow_47"
+    }
+  },
+  "150": {
+    "class_type": "TextEncodeQwenImageEdit",
+    "inputs": {
+      "clip": [
+        "134",
+        0
+      ],
+      "prompt": [
+        "151",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ],
+      "image": [
+        "181",
+        0
+      ]
+    }
+  },
+  "154": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "157",
+        0
+      ],
+      "vae": [
+        "135",
+        0
+      ]
+    }
+  },
+  "181": {
+    "class_type": "ImageResizeKJv2",
+    "inputs": {}
+  },
+  "139": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "example_image_01.png"
+    }
+  },
+  "182": {
+    "class_type": "Int",
+    "inputs": {}
+  }
+}
